@@ -1,0 +1,2518 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:f808a377-c710-4278-8031-363b23316247",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-05-29T00:00:00.000Z",
+    "tools": [
+      {
+        "vendor": "stynx",
+        "name": "scripts/generate-sbom.mjs",
+        "version": "0.6.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "name": "@aarusso-nyx/stynx-internal-workspace",
+      "version": "0.6.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "stynx:pnpm-lock-sha256",
+        "value": "f808a377c71082783031363b23316247c74467e9a8d7ac2f9b988f6db42f8cfd"
+      },
+      {
+        "name": "stynx:package-manager",
+        "value": "pnpm@9.15.0"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "__PACKAGE_NAME__",
+      "version": "0.1.0",
+      "scope": "excluded",
+      "licenses": [],
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "tools/create-stynx-app/template"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/devai",
+      "version": "1.2.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fdevai@1.2.0"
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-angular-audit",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-angular-audit@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages-web/angular-audit"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-angular-auth",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-angular-auth@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages-web/angular-auth"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-angular-flow",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-angular-flow@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages-web/angular-flow"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-angular-i18n",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-angular-i18n@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages-web/angular-i18n"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-angular-iam",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-angular-iam@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages-web/angular-iam"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-angular-profile",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-angular-profile@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages-web/angular-profile"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-angular-sessions",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-angular-sessions@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages-web/angular-sessions"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-angular-storage",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-angular-storage@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages-web/angular-storage"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-angular-tenancy",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-angular-tenancy@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages-web/angular-tenancy"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-angular-trash",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-angular-trash@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages-web/angular-trash"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-angular-ui",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-angular-ui@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages-web/angular-ui"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-angular",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-angular@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages-web/angular"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-audit",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-audit@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/audit"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-auth",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-auth@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/auth"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-backend",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-backend@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/backend"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-cli",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-cli@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/cli"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-contracts",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-contracts@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/contracts"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-core",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-core@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/core"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-data",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-data@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/data"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-feature-flags",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-feature-flags@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/feature-flags"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-flow",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-flow@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/flow"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-health",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-health@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/health"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-i18n",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-i18n@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/i18n"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-idempotency",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-idempotency@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/idempotency"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-integration-adapter",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-integration-adapter@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/integration-adapter"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-internal-create-stynx-app",
+      "version": "0.2.0",
+      "scope": "excluded",
+      "licenses": [],
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "tools/create-stynx-app"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-internal-demo-bookmark-api",
+      "version": "0.0.5",
+      "scope": "excluded",
+      "licenses": [],
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "domain/demo-bookmark/api"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-internal-demo-bookmark-web",
+      "version": "0.0.1",
+      "scope": "excluded",
+      "licenses": [],
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "domain/demo-bookmark/web"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-internal-docs-site",
+      "version": "0.6.0",
+      "scope": "excluded",
+      "licenses": [],
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "docs/site"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-internal-eslint-config",
+      "version": "0.2.0",
+      "scope": "excluded",
+      "licenses": [],
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "tools/eslint-config"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-internal-infra-cdk",
+      "version": "0.1.0",
+      "scope": "excluded",
+      "licenses": [],
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "infra/cdk"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-internal-migration-linter",
+      "version": "0.2.0",
+      "scope": "excluded",
+      "licenses": [],
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "tools/migration-linter"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-internal-reference-api",
+      "version": "0.3.5",
+      "scope": "excluded",
+      "licenses": [],
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "reference/api"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-internal-reference-web",
+      "version": "0.2.5",
+      "scope": "excluded",
+      "licenses": [],
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "reference/web"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-internal-test-db",
+      "version": "0.0.0",
+      "scope": "excluded",
+      "licenses": [],
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "test/db"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-internal-test-packages",
+      "version": "0.0.0",
+      "scope": "excluded",
+      "licenses": [],
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "test/packages"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-internal-test-scripts",
+      "version": "0.0.0",
+      "scope": "excluded",
+      "licenses": [],
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "test/scripts"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-internal-tsconfig",
+      "version": "0.2.0",
+      "scope": "excluded",
+      "licenses": [],
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "tools/tsconfig"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-internal-workspace",
+      "version": "0.6.0",
+      "scope": "excluded",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-logging",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-logging@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/logging"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-pdf-a-vera-docker",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-pdf-a-vera-docker@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/pdf-a-vera-docker"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-pdf-a",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-pdf-a@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/pdf-a"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-pdf",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-pdf@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/pdf"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-preferences",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-preferences@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/preferences"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-privacy",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-privacy@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/privacy"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-ratelimit",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-ratelimit@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/ratelimit"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-sdk",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-sdk@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages-web/sdk"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-sessions",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-sessions@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/sessions"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-signature",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-signature@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/signature"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-storage",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-storage@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/storage"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-tenancy",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-tenancy@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/tenancy"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@aarusso-nyx/stynx-testing",
+      "version": "0.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aarusso-nyx%2fstynx-testing@0.6.0",
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "packages/testing"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@angular-eslint/eslint-plugin-template",
+      "version": "21.4.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@angular-eslint%2feslint-plugin-template@21.4.0"
+    },
+    {
+      "type": "library",
+      "name": "@angular-eslint/eslint-plugin",
+      "version": "21.4.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@angular-eslint%2feslint-plugin@21.4.0"
+    },
+    {
+      "type": "library",
+      "name": "@angular-eslint/template-parser",
+      "version": "21.4.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@angular-eslint%2ftemplate-parser@21.4.0"
+    },
+    {
+      "type": "library",
+      "name": "@angular/common",
+      "version": "21.2.19",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@angular%2fcommon@21.2.19"
+    },
+    {
+      "type": "library",
+      "name": "@angular/compiler-cli",
+      "version": "21.2.19",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@angular%2fcompiler-cli@21.2.19"
+    },
+    {
+      "type": "library",
+      "name": "@angular/compiler",
+      "version": "21.2.19",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@angular%2fcompiler@21.2.19"
+    },
+    {
+      "type": "library",
+      "name": "@angular/core",
+      "version": "21.2.19",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@angular%2fcore@21.2.19"
+    },
+    {
+      "type": "library",
+      "name": "@angular/forms",
+      "version": "21.2.19",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@angular%2fforms@21.2.19"
+    },
+    {
+      "type": "library",
+      "name": "@angular/platform-browser-dynamic",
+      "version": "21.2.19",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@angular%2fplatform-browser-dynamic@21.2.19"
+    },
+    {
+      "type": "library",
+      "name": "@angular/platform-browser",
+      "version": "21.2.19",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@angular%2fplatform-browser@21.2.19"
+    },
+    {
+      "type": "library",
+      "name": "@angular/router",
+      "version": "21.2.19",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@angular%2frouter@21.2.19"
+    },
+    {
+      "type": "library",
+      "name": "@aws-sdk/client-cognito-identity-provider",
+      "version": "3.1050.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aws-sdk%2fclient-cognito-identity-provider@3.1050.0"
+    },
+    {
+      "type": "library",
+      "name": "@aws-sdk/client-s3",
+      "version": "3.1050.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aws-sdk%2fclient-s3@3.1050.0"
+    },
+    {
+      "type": "library",
+      "name": "@aws-sdk/client-secrets-manager",
+      "version": "3.1050.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aws-sdk%2fclient-secrets-manager@3.1050.0"
+    },
+    {
+      "type": "library",
+      "name": "@aws-sdk/client-ssm",
+      "version": "3.1050.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aws-sdk%2fclient-ssm@3.1050.0"
+    },
+    {
+      "type": "library",
+      "name": "@aws-sdk/credential-providers",
+      "version": "3.1050.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aws-sdk%2fcredential-providers@3.1050.0"
+    },
+    {
+      "type": "library",
+      "name": "@aws-sdk/s3-request-presigner",
+      "version": "3.1050.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aws-sdk%2fs3-request-presigner@3.1050.0"
+    },
+    {
+      "type": "library",
+      "name": "@aws-sdk/types",
+      "version": "3.973.8",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@aws-sdk%2ftypes@3.973.8"
+    },
+    {
+      "type": "library",
+      "name": "@axe-core/playwright",
+      "version": "4.11.3",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MPL-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@axe-core%2fplaywright@4.11.3"
+    },
+    {
+      "type": "library",
+      "name": "@changesets/cli",
+      "version": "2.31.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@changesets%2fcli@2.31.0"
+    },
+    {
+      "type": "library",
+      "name": "@commitlint/cli",
+      "version": "20.5.3",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@commitlint%2fcli@20.5.3"
+    },
+    {
+      "type": "library",
+      "name": "@commitlint/config-conventional",
+      "version": "20.5.3",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@commitlint%2fconfig-conventional@20.5.3"
+    },
+    {
+      "type": "library",
+      "name": "@docusaurus/core",
+      "version": "3.10.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@docusaurus%2fcore@3.10.1"
+    },
+    {
+      "type": "library",
+      "name": "@docusaurus/preset-classic",
+      "version": "3.10.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@docusaurus%2fpreset-classic@3.10.1"
+    },
+    {
+      "type": "library",
+      "name": "@docusaurus/theme-mermaid",
+      "version": "3.10.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@docusaurus%2ftheme-mermaid@3.10.1"
+    },
+    {
+      "type": "library",
+      "name": "@easyops-cn/docusaurus-search-local",
+      "version": "0.55.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@easyops-cn%2fdocusaurus-search-local@0.55.1"
+    },
+    {
+      "type": "library",
+      "name": "@eslint/js",
+      "version": "10.0.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@eslint%2fjs@10.0.1"
+    },
+    {
+      "type": "library",
+      "name": "@lhci/cli",
+      "version": "0.15.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@lhci%2fcli@0.15.1"
+    },
+    {
+      "type": "library",
+      "name": "@mermaid-js/layout-elk",
+      "version": "0.2.2",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@mermaid-js%2flayout-elk@0.2.2"
+    },
+    {
+      "type": "library",
+      "name": "@nestjs/common",
+      "version": "11.1.21",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@nestjs%2fcommon@11.1.21"
+    },
+    {
+      "type": "library",
+      "name": "@nestjs/core",
+      "version": "11.1.21",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@nestjs%2fcore@11.1.21"
+    },
+    {
+      "type": "library",
+      "name": "@nestjs/mapped-types",
+      "version": "2.1.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@nestjs%2fmapped-types@2.1.1"
+    },
+    {
+      "type": "library",
+      "name": "@nestjs/platform-express",
+      "version": "11.1.21",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@nestjs%2fplatform-express@11.1.21"
+    },
+    {
+      "type": "library",
+      "name": "@nestjs/schedule",
+      "version": "6.1.3",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@nestjs%2fschedule@6.1.3"
+    },
+    {
+      "type": "library",
+      "name": "@nestjs/terminus",
+      "version": "11.1.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@nestjs%2fterminus@11.1.1"
+    },
+    {
+      "type": "library",
+      "name": "@nestjs/testing",
+      "version": "11.1.21",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@nestjs%2ftesting@11.1.21"
+    },
+    {
+      "type": "library",
+      "name": "@pdf-lib/fontkit",
+      "version": "1.1.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@pdf-lib%2ffontkit@1.1.1"
+    },
+    {
+      "type": "library",
+      "name": "@playwright/test",
+      "version": "1.60.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@playwright%2ftest@1.60.0"
+    },
+    {
+      "type": "library",
+      "name": "@stryker-mutator/core",
+      "version": "9.6.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@stryker-mutator%2fcore@9.6.1"
+    },
+    {
+      "type": "library",
+      "name": "@stryker-mutator/typescript-checker",
+      "version": "9.6.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@stryker-mutator%2ftypescript-checker@9.6.1"
+    },
+    {
+      "type": "library",
+      "name": "@stryker-mutator/vitest-runner",
+      "version": "9.6.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@stryker-mutator%2fvitest-runner@9.6.1"
+    },
+    {
+      "type": "library",
+      "name": "@swc/core",
+      "version": "1.15.33",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@swc%2fcore@1.15.33"
+    },
+    {
+      "type": "library",
+      "name": "@types/node",
+      "version": "24.12.4",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@types%2fnode@24.12.4"
+    },
+    {
+      "type": "library",
+      "name": "@types/pg",
+      "version": "8.20.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@types%2fpg@8.20.0"
+    },
+    {
+      "type": "library",
+      "name": "@types/supertest",
+      "version": "7.2.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@types%2fsupertest@7.2.0"
+    },
+    {
+      "type": "library",
+      "name": "@typescript-eslint/eslint-plugin",
+      "version": "8.59.4",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@typescript-eslint%2feslint-plugin@8.59.4"
+    },
+    {
+      "type": "library",
+      "name": "@typescript-eslint/parser",
+      "version": "8.59.4",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@typescript-eslint%2fparser@8.59.4"
+    },
+    {
+      "type": "library",
+      "name": "@vitest/coverage-v8",
+      "version": "3.2.7",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@vitest%2fcoverage-v8@3.2.7"
+    },
+    {
+      "type": "library",
+      "name": "@xmldom/xmldom",
+      "version": "0.9.10",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@xmldom%2fxmldom@0.9.10"
+    },
+    {
+      "type": "library",
+      "name": "angular-auth-oidc-client",
+      "version": "21.0.2",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/angular-auth-oidc-client@21.0.2"
+    },
+    {
+      "type": "library",
+      "name": "class-validator",
+      "version": "0.15.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/class-validator@0.15.1"
+    },
+    {
+      "type": "library",
+      "name": "clsx",
+      "version": "2.1.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/clsx@2.1.1"
+    },
+    {
+      "type": "library",
+      "name": "commander",
+      "version": "14.0.3",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/commander@14.0.3"
+    },
+    {
+      "type": "library",
+      "name": "cross-env",
+      "version": "10.1.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/cross-env@10.1.0"
+    },
+    {
+      "type": "library",
+      "name": "depcheck",
+      "version": "1.4.7",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/depcheck@1.4.7"
+    },
+    {
+      "type": "library",
+      "name": "drizzle-orm",
+      "version": "0.45.2",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/drizzle-orm@0.45.2"
+    },
+    {
+      "type": "library",
+      "name": "esbuild",
+      "version": "0.28.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/esbuild@0.28.1"
+    },
+    {
+      "type": "library",
+      "name": "eslint-plugin-boundaries",
+      "version": "6.0.2",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/eslint-plugin-boundaries@6.0.2"
+    },
+    {
+      "type": "library",
+      "name": "eslint-plugin-jsdoc",
+      "version": "62.9.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:npm/eslint-plugin-jsdoc@62.9.0"
+    },
+    {
+      "type": "library",
+      "name": "eslint",
+      "version": "10.4.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/eslint@10.4.0"
+    },
+    {
+      "type": "library",
+      "name": "github-actionlint",
+      "version": "1.7.12",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/github-actionlint@1.7.12"
+    },
+    {
+      "type": "library",
+      "name": "globals",
+      "version": "17.6.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/globals@17.6.0"
+    },
+    {
+      "type": "library",
+      "name": "handlebars",
+      "version": "4.7.9",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/handlebars@4.7.9"
+    },
+    {
+      "type": "library",
+      "name": "helmet",
+      "version": "8.2.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/helmet@8.2.0"
+    },
+    {
+      "type": "library",
+      "name": "husky",
+      "version": "9.1.7",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/husky@9.1.7"
+    },
+    {
+      "type": "library",
+      "name": "image-size",
+      "version": "2.0.3-stynx.1",
+      "scope": "excluded",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "stynx:workspacePath",
+          "value": "tools/image-size-safe"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "intl-messageformat",
+      "version": "11.2.6",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:npm/intl-messageformat@11.2.6"
+    },
+    {
+      "type": "library",
+      "name": "jose",
+      "version": "6.2.3",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/jose@6.2.3"
+    },
+    {
+      "type": "library",
+      "name": "jsdom",
+      "version": "29.1.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/jsdom@29.1.1"
+    },
+    {
+      "type": "library",
+      "name": "jszip",
+      "version": "3.10.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/jszip@3.10.1"
+    },
+    {
+      "type": "library",
+      "name": "knip",
+      "version": "6.14.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/knip@6.14.1"
+    },
+    {
+      "type": "library",
+      "name": "lint-staged",
+      "version": "16.4.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/lint-staged@16.4.0"
+    },
+    {
+      "type": "library",
+      "name": "madge",
+      "version": "8.0.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/madge@8.0.0"
+    },
+    {
+      "type": "library",
+      "name": "nestjs-cls",
+      "version": "6.2.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/nestjs-cls@6.2.0"
+    },
+    {
+      "type": "library",
+      "name": "ng-packagr",
+      "version": "21.2.3",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ng-packagr@21.2.3"
+    },
+    {
+      "type": "library",
+      "name": "openapi-typescript-codegen",
+      "version": "0.30.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/openapi-typescript-codegen@0.30.0"
+    },
+    {
+      "type": "library",
+      "name": "pdf-lib",
+      "version": "1.17.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/pdf-lib@1.17.1"
+    },
+    {
+      "type": "library",
+      "name": "pg-query-emscripten",
+      "version": "5.1.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/pg-query-emscripten@5.1.0"
+    },
+    {
+      "type": "library",
+      "name": "pg",
+      "version": "8.21.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/pg@8.21.0"
+    },
+    {
+      "type": "library",
+      "name": "pino-pretty",
+      "version": "13.1.3",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/pino-pretty@13.1.3"
+    },
+    {
+      "type": "library",
+      "name": "pino",
+      "version": "10.3.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/pino@10.3.1"
+    },
+    {
+      "type": "library",
+      "name": "playwright",
+      "version": "1.60.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/playwright@1.60.0"
+    },
+    {
+      "type": "library",
+      "name": "prettier",
+      "version": "3.8.3",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/prettier@3.8.3"
+    },
+    {
+      "type": "library",
+      "name": "prism-react-renderer",
+      "version": "2.4.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/prism-react-renderer@2.4.1"
+    },
+    {
+      "type": "library",
+      "name": "prom-client",
+      "version": "15.1.3",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/prom-client@15.1.3"
+    },
+    {
+      "type": "library",
+      "name": "react-dom",
+      "version": "19.2.6",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/react-dom@19.2.6"
+    },
+    {
+      "type": "library",
+      "name": "react",
+      "version": "19.2.6",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/react@19.2.6"
+    },
+    {
+      "type": "library",
+      "name": "redis",
+      "version": "5.12.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/redis@5.12.1"
+    },
+    {
+      "type": "library",
+      "name": "reflect-metadata",
+      "version": "0.2.2",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/reflect-metadata@0.2.2"
+    },
+    {
+      "type": "library",
+      "name": "rxjs",
+      "version": "7.8.2",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/rxjs@7.8.2"
+    },
+    {
+      "type": "library",
+      "name": "source-map-support",
+      "version": "0.5.21",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/source-map-support@0.5.21"
+    },
+    {
+      "type": "library",
+      "name": "supertest",
+      "version": "7.2.2",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/supertest@7.2.2"
+    },
+    {
+      "type": "library",
+      "name": "testcontainers",
+      "version": "11.14.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/testcontainers@11.14.0"
+    },
+    {
+      "type": "library",
+      "name": "ts-node",
+      "version": "10.9.2",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ts-node@10.9.2"
+    },
+    {
+      "type": "library",
+      "name": "tslib",
+      "version": "2.8.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "0BSD"
+          }
+        }
+      ],
+      "purl": "pkg:npm/tslib@2.8.1"
+    },
+    {
+      "type": "library",
+      "name": "tsup",
+      "version": "8.5.1",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/tsup@8.5.1"
+    },
+    {
+      "type": "library",
+      "name": "turbo",
+      "version": "2.9.14",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/turbo@2.9.14"
+    },
+    {
+      "type": "library",
+      "name": "typedoc-plugin-markdown",
+      "version": "4.11.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/typedoc-plugin-markdown@4.11.0"
+    },
+    {
+      "type": "library",
+      "name": "typedoc",
+      "version": "0.28.19",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/typedoc@0.28.19"
+    },
+    {
+      "type": "library",
+      "name": "typescript",
+      "version": "6.0.3",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/typescript@6.0.3"
+    },
+    {
+      "type": "library",
+      "name": "unplugin-swc",
+      "version": "1.5.9",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/unplugin-swc@1.5.9"
+    },
+    {
+      "type": "library",
+      "name": "uuid",
+      "version": "14.0.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/uuid@14.0.0"
+    },
+    {
+      "type": "library",
+      "name": "vitest",
+      "version": "3.2.7",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/vitest@3.2.7"
+    },
+    {
+      "type": "library",
+      "name": "xml-crypto",
+      "version": "6.1.2",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/xml-crypto@6.1.2"
+    },
+    {
+      "type": "library",
+      "name": "yaml",
+      "version": "2.9.0",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/yaml@2.9.0"
+    },
+    {
+      "type": "library",
+      "name": "zod",
+      "version": "4.4.3",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/zod@4.4.3"
+    },
+    {
+      "type": "library",
+      "name": "zone.js",
+      "version": "0.16.2",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/zone.js@0.16.2"
+    }
+  ]
+}
