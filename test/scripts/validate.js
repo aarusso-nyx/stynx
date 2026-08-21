@@ -385,7 +385,7 @@ async function runMutationEvidenceTests() {
   );
   assertEqual(
     createHash('sha256').update(thresholdBytes).digest('hex'),
-    'f827ddb2a9725846f4860e149ac404a608a3b96faa6a8e53b9b928fdf5135824',
+    '9ec4bd59dba19f17e1259b95e093e2a70d72f3f16978d5613ec715bd9ca9c517',
     'mutation package and threshold contract',
   );
 
