@@ -1,0 +1,56 @@
+import { Body, Controller, Delete, Get, Param, Patch, Put, UseGuards } from '@nestjs/common';
+import { Permission, PermissionGuard, ReadOnly, StynxAuthGuard } from '@aarusso-nyx/stynx-auth';
+import { Audit, NoIdempotent } from '@aarusso-nyx/stynx-backend';
+import { Idempotent } from '@aarusso-nyx/stynx-idempotency';
+import { FlowFormsService } from '../flow-forms.service';
+import type { PutFlowQuestionScoreDto, UpdateFlowQuestionDto } from '../types';
+
+@Controller('/flow/questions')
+@UseGuards(StynxAuthGuard, PermissionGuard)
+export class FlowQuestionsController {
+  constructor(private readonly forms: FlowFormsService) {}
+
+  @Permission('flow:read:design')
+  @ReadOnly()
+  @Get('/:id')
+  get(@Param('id') id: string) {
+    return this.forms.getQuestion(id);
+  }
+
+  @Permission('flow:write:design')
+  @Audit({ action: 'flow.question.update', entity: 'flow.questions' })
+  @NoIdempotent()
+  @Patch('/:id')
+  update(@Param('id') id: string, @Body() input: UpdateFlowQuestionDto) {
+    return this.forms.updateQuestion(id, input);
+  }
+
+  @Permission('flow:write:design')
+  @Audit({ action: 'flow.question.delete', entity: 'flow.questions' })
+  @Delete('/:id')
+  delete(@Param('id') id: string) {
+    return this.forms.deleteQuestion(id);
+  }
+
+  @Permission('flow:read:design')
+  @ReadOnly()
+  @Get('/:id/score')
+  score(@Param('id') id: string) {
+    return this.forms.getQuestionScore(id);
+  }
+
+  @Permission('flow:write:design')
+  @Audit({ action: 'flow.score.put', entity: 'flow.scores' })
+  @Idempotent('Idempotency-Key')
+  @Put('/:id/score')
+  putScore(@Param('id') id: string, @Body() input: PutFlowQuestionScoreDto) {
+    return this.forms.putQuestionScore(id, input);
+  }
+
+  @Permission('flow:write:design')
+  @Audit({ action: 'flow.score.delete', entity: 'flow.scores' })
+  @Delete('/:id/score')
+  deleteScore(@Param('id') id: string) {
+    return this.forms.deleteQuestionScore(id);
+  }
+}

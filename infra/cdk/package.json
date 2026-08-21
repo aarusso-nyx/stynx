@@ -1,0 +1,22 @@
+{
+  "name": "@aarusso-nyx/stynx-internal-infra-cdk",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Standalone AWS CDK project for STYNX reference infrastructure",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --config ./vitest.config.ts",
+    "synth:dev": "cdk synth -c env=dev"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.251.0",
+    "constructs": "^10.6.0",
+    "source-map-support": "^0.5.21"
+  },
+  "devDependencies": {
+    "@types/node": "24.12.4",
+    "aws-cdk": "^2.1119.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}

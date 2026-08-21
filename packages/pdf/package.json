@@ -1,0 +1,76 @@
+{
+  "name": "@aarusso-nyx/stynx-pdf",
+  "version": "0.6.0",
+  "license": "BUSL-1.1",
+  "author": "Antonio Augusto Russo <aarusso@nyxk.com.br>",
+  "description": "Server-side PDF generation facade for stynx",
+  "main": "dist/pdf/src/index.js",
+  "types": "dist/pdf/src/index.d.ts",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/pdf/src/index.d.ts",
+      "require": "./dist/pdf/src/index.js",
+      "default": "./dist/pdf/src/index.js"
+    },
+    "./fixed-layout": {
+      "types": "./dist/pdf/src/fixed-layout/index.d.ts",
+      "require": "./dist/pdf/src/fixed-layout/index.js",
+      "default": "./dist/pdf/src/fixed-layout/index.js"
+    },
+    "./evidence": {
+      "types": "./dist/pdf/src/evidence/index.d.ts",
+      "require": "./dist/pdf/src/evidence/index.js",
+      "default": "./dist/pdf/src/evidence/index.js"
+    },
+    "./public-payroll": {
+      "types": "./dist/pdf/src/templates/public-payroll/index.d.ts",
+      "require": "./dist/pdf/src/templates/public-payroll/index.js",
+      "default": "./dist/pdf/src/templates/public-payroll/index.js"
+    }
+  },
+  "files": [
+    "assets",
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist coverage",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint --config ../../tools/eslint-config/nest.mjs \"src/**/*.ts\"",
+    "test": "vitest run --config ./vitest.config.ts"
+  },
+  "dependencies": {
+    "@pdf-lib/fontkit": "^1.1.1",
+    "handlebars": "4.7.9",
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.60.0"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^11.1.19",
+    "@nestjs/core": "^11.1.19",
+    "@aarusso-nyx/stynx-signature": "^0.6.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
+  },
+  "stynxProviderDependencies": {
+    "templateEngines": [
+      "handlebars",
+      "html"
+    ],
+    "pdfRenderer": "provider-supplied Chromium, Playwright, or equivalent renderer"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^11.1.19",
+    "@aarusso-nyx/stynx-signature": "workspace:*",
+    "@types/node": "24.12.4",
+    "typescript": "^6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aarusso-nyx/stynx.git",
+    "directory": "packages/pdf"
+  }
+}

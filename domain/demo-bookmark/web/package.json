@@ -1,0 +1,27 @@
+{
+  "name": "@aarusso-nyx/stynx-internal-demo-bookmark-web",
+  "version": "0.0.1",
+  "private": true,
+  "description": "C-4 pilot scaffold evidence for BP-DEMO-BOOKMARK-001; private, non-product Angular feature placeholder with no production runtime dependencies.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint --max-warnings=0 'src/**/*.ts'",
+    "test": "vitest run --config ./vitest.config.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@angular/common": "21.2.19",
+    "@angular/core": "21.2.19",
+    "@angular/router": "21.2.19",
+    "@aarusso-nyx/stynx-internal-eslint-config": "workspace:*",
+    "@aarusso-nyx/stynx-internal-tsconfig": "workspace:*",
+    "@aarusso-nyx/stynx-angular": "workspace:*",
+    "rxjs": "^7.8.2",
+    "typescript": "5.9.3",
+    "vitest": "^3",
+    "@angular/platform-browser": "21.2.19"
+  }
+}

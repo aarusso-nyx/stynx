@@ -1,0 +1,47 @@
+{
+  "name": "@aarusso-nyx/stynx-internal-demo-bookmark-api",
+  "version": "0.0.5",
+  "private": true,
+  "description": "NestJS API surface for the reference Bookmark module.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint --max-warnings=0 'src/**/*.ts' 'test/**/*.ts'",
+    "test": "vitest run --config ./vitest.config.ts",
+    "test:int": "vitest run --config ./vitest.int.config.ts"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.19",
+    "@nestjs/core": "^11.1.19",
+    "@nestjs/mapped-types": "^2.0.6",
+    "@nestjs/platform-express": "^11.1.19",
+    "@aarusso-nyx/stynx-audit": "workspace:*",
+    "@aarusso-nyx/stynx-auth": "workspace:*",
+    "@aarusso-nyx/stynx-backend": "workspace:*",
+    "@aarusso-nyx/stynx-contracts": "workspace:*",
+    "@aarusso-nyx/stynx-core": "workspace:*",
+    "@aarusso-nyx/stynx-data": "workspace:*",
+    "@aarusso-nyx/stynx-health": "workspace:*",
+    "@aarusso-nyx/stynx-idempotency": "workspace:*",
+    "@aarusso-nyx/stynx-logging": "workspace:*",
+    "@aarusso-nyx/stynx-ratelimit": "workspace:*",
+    "@aarusso-nyx/stynx-sessions": "workspace:*",
+    "@aarusso-nyx/stynx-storage": "workspace:*",
+    "@aarusso-nyx/stynx-tenancy": "workspace:*",
+    "class-validator": "^0.15.1",
+    "drizzle-orm": "^0.45.2",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^11.1.19",
+    "@aarusso-nyx/stynx-internal-eslint-config": "workspace:*",
+    "@aarusso-nyx/stynx-internal-tsconfig": "workspace:*",
+    "@types/node": "24.12.4",
+    "@types/pg": "^8.20.0",
+    "pg": "^8.20.0",
+    "typescript": "^6.0.3"
+  }
+}

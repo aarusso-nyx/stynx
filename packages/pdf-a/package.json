@@ -1,0 +1,47 @@
+{
+  "name": "@aarusso-nyx/stynx-pdf-a",
+  "version": "0.6.0",
+  "license": "BUSL-1.1",
+  "author": "Antonio Augusto Russo <aarusso@nyxk.com.br>",
+  "description": "PDF/A validation contract and stubs for stynx",
+  "main": "dist/pdf-a/src/index.js",
+  "types": "dist/pdf-a/src/index.d.ts",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/pdf-a/src/index.d.ts",
+      "require": "./dist/pdf-a/src/index.js",
+      "default": "./dist/pdf-a/src/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist coverage",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint --config ../../tools/eslint-config/nest.mjs \"src/**/*.ts\"",
+    "test": "vitest run --config ./vitest.config.ts"
+  },
+  "peerDependencies": {
+    "@aarusso-nyx/stynx-logging": "^0.6.0"
+  },
+  "peerDependenciesMeta": {
+    "@aarusso-nyx/stynx-logging": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@aarusso-nyx/stynx-logging": "workspace:*",
+    "@types/node": "24.12.4",
+    "typescript": "^6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aarusso-nyx/stynx.git",
+    "directory": "packages/pdf-a"
+  }
+}

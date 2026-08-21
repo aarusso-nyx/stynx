@@ -1,0 +1,20 @@
+{
+  "name": "@aarusso-nyx/stynx-internal-eslint-config",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "description": "Shared flat ESLint config for the STYNX monorepo",
+  "exports": {
+    ".": "./index.mjs",
+    "./lib": "./lib.mjs",
+    "./nest": "./nest.mjs",
+    "./angular": "./angular.mjs"
+  },
+  "scripts": {
+    "test": "node --test test/eslint-config.spec.mjs"
+  },
+  "files": [
+    "*.mjs",
+    "README.md"
+  ]
+}

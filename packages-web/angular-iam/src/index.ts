@@ -1,0 +1,25 @@
+/**
+ * Public Angular IAM exports for user, group, role, permission-matrix, and route administration.
+ *
+ * @packageDocumentation
+ */
+export * from './catalogs';
+export * from './effective-permissions.component';
+export * from './group-create-dialog.component';
+export * from './group-detail.component';
+export * from './group-members-editor.component';
+export * from './group-roles-editor.component';
+export * from './groups-admin.component';
+export * from './iam-api.service';
+export * from './permission-matrix.component';
+export * from './provide-iam';
+export * from './role-create-dialog.component';
+export * from './role-detail.component';
+export * from './roles-admin.component';
+export * from './routes';
+export * from './tokens';
+export * from './types';
+export * from './user-create-dialog.component';
+export * from './user-detail.component';
+export * from './user-disable-confirm-dialog.component';
+export * from './users-admin.component';

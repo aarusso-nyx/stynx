@@ -1,0 +1,9 @@
+packages:
+  - 'packages/*'
+  - 'packages-web/*'
+  - 'reference/*'
+  - 'domain/*/api'
+  - 'domain/*/web'
+  - 'tools/*'
+  - 'test/*'
+  - 'docs/site'

@@ -1,0 +1,11 @@
+{
+  "extends": "../../tools/tsconfig/node24.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "types": ["node", "vitest/globals"],
+    "rootDir": ".."
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"]
+}

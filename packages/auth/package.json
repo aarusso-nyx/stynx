@@ -1,0 +1,64 @@
+{
+  "name": "@aarusso-nyx/stynx-auth",
+  "version": "0.6.0",
+  "license": "BUSL-1.1",
+  "author": "Antonio Augusto Russo <aarusso@nyxk.com.br>",
+  "description": "Authentication adapters and runtime primitives for stynx",
+  "main": "dist/auth/src/index.js",
+  "types": "dist/auth/src/index.d.ts",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/auth/src/index.d.ts",
+      "require": "./dist/auth/src/index.js",
+      "default": "./dist/auth/src/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist coverage",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint --config ../../tools/eslint-config/nest.mjs \"src/**/*.ts\"",
+    "test": "vitest run --config ./vitest.config.ts",
+    "test:int": "vitest run --config ./vitest.int.config.ts",
+    "stryker": "pnpm exec stryker run stryker.conf.mjs"
+  },
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.1037.0",
+    "@aws-sdk/credential-providers": "^3.1037.0",
+    "@aws-sdk/types": "^3.973.8",
+    "@aarusso-nyx/stynx-contracts": "workspace:*",
+    "@aarusso-nyx/stynx-core": "workspace:*",
+    "@aarusso-nyx/stynx-data": "workspace:*",
+    "@aarusso-nyx/stynx-idempotency": "workspace:*",
+    "@aarusso-nyx/stynx-sessions": "workspace:*",
+    "jose": "^6.2.2",
+    "redis": "^5.12.1",
+    "zod": "^4.3.6"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^11.1.19",
+    "@nestjs/core": "^11.1.19",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "@nestjs/platform-express": "^11.1.19",
+    "@nestjs/testing": "^11.1.19",
+    "@types/node": "24.12.4",
+    "@types/supertest": "^7.2.0",
+    "supertest": "^7.2.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aarusso-nyx/stynx.git",
+    "directory": "packages/auth"
+  }
+}

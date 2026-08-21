@@ -1,0 +1,14 @@
+/**
+ * Public catalog, locale, localized error, and i18n administration exports.
+ *
+ * @packageDocumentation
+ */
+export * from './catalog.service';
+export * from './error-translator.service';
+export * from './i18n-admin.service';
+export * from './i18n.controller';
+export * from './i18n.module';
+export * from './locale.interceptor';
+export * from './locale.service';
+export * from './tokens';
+export * from './types';

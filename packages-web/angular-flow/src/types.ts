@@ -1,0 +1,348 @@
+export type FlowNodeKind = 'human' | 'auto' | 'system' | 'start' | 'end' | 'gateway';
+export type FlowDecisionPolicy = 'all' | 'any' | 'quorum';
+export type FlowGraphStatus = 'draft' | 'published';
+export type FlowRunStatus = 'active' | 'completed' | 'canceled';
+export type FlowTaskStatus = 'open' | 'completed' | 'canceled';
+export type FlowFieldType =
+  | 'boolean'
+  | 'string'
+  | 'text'
+  | 'number'
+  | 'date'
+  | 'select'
+  | 'multiselect'
+  | 'file'
+  | 'signature'
+  | 'url'
+  | 'cnpj'
+  | 'email';
+
+export interface FlowPage<TItem> {
+  data: TItem[];
+  meta: {
+    page: number;
+    pageSize: number;
+    total: number;
+  };
+}
+
+export interface FlowScope {
+  id: string;
+  code: string;
+  label: string;
+  adapterKey: string;
+  adapterConfig?: Record<string, unknown>;
+  meta?: Record<string, unknown>;
+}
+
+export interface FlowGraph {
+  id: string;
+  scopeId: string;
+  code: string;
+  version: string;
+  status: FlowGraphStatus;
+  publishedVersion?: number;
+  publishedAt?: string;
+  publishedBy?: string | null;
+  isActive: boolean;
+  name?: string;
+  description?: string;
+  meta?: Record<string, unknown>;
+}
+
+export interface PublishFlowGraphRequest {
+  expectedDraftVersion?: string;
+  notes?: string;
+}
+
+export interface PublishFlowGraphResponse {
+  graphId: string;
+  status: 'published';
+  draftVersion: string;
+  publishedVersion: number;
+  publishedAt: string;
+  publishedBy?: string | null;
+  runtimeGraphRef: {
+    graphId: string;
+    version: number;
+  };
+}
+
+export interface FlowNode {
+  id: string;
+  graphId: string;
+  code: string;
+  name?: string;
+  kind: FlowNodeKind;
+  decisionPolicy?: FlowDecisionPolicy;
+  quorumRatio?: string;
+  allowedActions?: string[];
+  entryRule?: string;
+  exitRule?: string;
+  sortOrder?: number;
+  meta?: Record<string, unknown>;
+}
+
+export interface FlowEdge {
+  id: string;
+  graphId: string;
+  fromNodeId: string;
+  toNodeId: string;
+  fromNodeCode?: string;
+  toNodeCode?: string;
+  action?: string;
+  rule?: string;
+  spawn?: boolean;
+  sortOrder?: number;
+  meta?: Record<string, unknown>;
+}
+
+export interface FlowAgentRule {
+  id: string;
+  nodeId: string;
+  ruleType: 'permission' | 'user' | 'resolver_fn';
+  permissionKey?: string;
+  userId?: string;
+  resolverKey?: string;
+  params?: Record<string, unknown>;
+  sortOrder?: number;
+}
+
+export interface FlowTransitionEffect {
+  id: string;
+  graphId: string;
+  nodeCode?: string;
+  action?: string;
+  effectKey: string;
+  payload?: Record<string, unknown>;
+  sortOrder?: number;
+}
+
+export interface FlowNodeFormRule {
+  id: string;
+  nodeId: string;
+  formId: string;
+  required: boolean;
+  gatingMode: 'all_required' | 'any' | 'threshold' | 'any_answered' | 'score_threshold';
+  threshold?: string;
+  applicability?: Record<string, unknown>;
+  weight?: string;
+  meta?: Record<string, unknown>;
+}
+
+export interface FlowRun {
+  id: string;
+  scopeId: string;
+  graphId: string;
+  adapterKey?: string;
+  targetType: string;
+  targetId: string;
+  status: FlowRunStatus;
+}
+
+export interface FlowNodeRun {
+  id: string;
+  runId: string;
+  nodeId: string;
+  nodeCode?: string;
+  nodeName?: string;
+  kind?: FlowNodeKind;
+  status: 'pending' | 'in_progress' | 'completed' | 'skipped' | 'canceled';
+}
+
+export interface FlowTask {
+  id: string;
+  runId: string;
+  nodeRunId: string;
+  nodeId: string;
+  nodeCode?: string;
+  nodeName?: string;
+  assigneeType: string;
+  assigneeId?: string;
+  assigneeUserId?: string;
+  status: FlowTaskStatus;
+  allowedActions: string[];
+  decidedAction?: string;
+  note?: string;
+  dueAt?: string;
+}
+
+export interface FlowForm {
+  id: string;
+  scopeId: string;
+  code: string;
+  version: string;
+  title: string;
+  description?: string;
+  isActive: boolean;
+  meta?: Record<string, unknown>;
+}
+
+export interface FlowQuestion {
+  id: string;
+  formId: string;
+  key: string;
+  label: string;
+  fieldType: FlowFieldType;
+  required: boolean;
+  blocksSubmit: boolean;
+  options?: unknown[] | Record<string, unknown>;
+  validators?: Record<string, unknown>;
+  visibleIf?: Record<string, unknown>;
+  revealIf?: FlowQuestionRevealCondition;
+  sortOrder?: number;
+}
+
+export interface FlowQuestionRevealCondition {
+  question: string;
+  equals: unknown;
+}
+
+export interface FlowScore {
+  id: string;
+  questionId: string;
+  passPoints: string;
+  failPoints: string;
+  meta?: Record<string, unknown>;
+}
+
+export interface FlowFill {
+  id: string;
+  formId: string;
+  scopeId: string;
+  runId?: string;
+  nodeRunId?: string;
+  taskId?: string;
+  targetType: string;
+  targetId: string;
+  status: 'draft' | 'submitted' | 'void';
+}
+
+export interface FlowAnswer {
+  id: string;
+  fillId: string;
+  questionId: string;
+  value?: unknown;
+  attachment?: unknown;
+}
+
+export interface FlowWaiver {
+  id: string;
+  scopeId: string;
+  targetType: string;
+  targetId: string;
+  formId: string;
+  questionId?: string;
+  reason: string;
+  waivedBy?: string;
+  expiresAt?: string;
+}
+
+export interface FlowOpenTask extends FlowTask {
+  targetType: string;
+  targetId: string;
+}
+
+export interface FlowRunSummary {
+  scopeId: string;
+  graphId: string;
+  status: FlowRunStatus;
+  runCount: number;
+  firstCreatedAt?: string;
+  lastUpdatedAt?: string;
+}
+
+export interface FlowDashboardAnalytics {
+  openTasks: number;
+  cycleTime: {
+    p50Seconds: number;
+    p95Seconds: number;
+  };
+  completionRate: {
+    last7Days: number;
+    last30Days: number;
+  };
+  slaBreaches: number;
+}
+
+export interface FlowEvent {
+  id: string;
+  runId: string;
+  nodeId?: string;
+  taskId?: string;
+  kind: string;
+  actorId?: string;
+  note?: string;
+  facts?: Record<string, unknown>;
+  payload?: Record<string, unknown>;
+  createdAt?: string;
+}
+
+export type FlowRunActivityEvent = FlowEvent;
+
+export interface FlowTaskCandidate {
+  agentType: 'user' | 'permission' | 'resolver';
+  agentId: string;
+  ruleId?: string;
+  label?: string;
+  resolverKey?: string;
+  unresolved?: boolean;
+}
+
+export interface FlowTaskUser {
+  id: string;
+  email?: string;
+  externalSubject?: string;
+  locale?: string;
+}
+
+export interface FlowPolicySet {
+  id: string;
+  scopeId: string;
+  version: string;
+  isActive: boolean;
+  name?: string;
+  description?: string;
+  meta?: Record<string, unknown>;
+}
+
+export interface FlowPolicyRule {
+  id: string;
+  policySetId: string;
+  nodeCode?: string;
+  statusCode?: string;
+  action?: string;
+  capability?: string;
+  effect: 'allow' | 'deny';
+  priority?: number;
+  reasonCode?: string;
+  conditions?: Record<string, unknown>;
+  meta?: Record<string, unknown>;
+}
+
+export interface FlowPolicyDecision {
+  allowed: boolean;
+  effect: 'allow' | 'deny';
+  reasonCode?: string | null;
+  matchedRuleId?: string | null;
+  defaulted: boolean;
+}
+
+export interface FlowEffectDispatchSummary {
+  attempted: number;
+  succeeded: number;
+  failed: number;
+  skipped: number;
+  diagnostics: Array<Record<string, unknown>>;
+}
+
+export interface FlowGraphExport {
+  graph: FlowGraph;
+  nodes: FlowNode[];
+  edges: FlowEdge[];
+  transitionEffects: FlowTransitionEffect[];
+  agentRules: FlowAgentRule[];
+  nodeFormRules: FlowNodeFormRule[];
+  policySets: Record<string, unknown>[];
+  policyRules: Record<string, unknown>[];
+}

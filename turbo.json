@@ -1,0 +1,69 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["package.json", "pnpm-workspace.yaml", "turbo.json"],
+  "globalPassThroughEnv": [
+    "DATABASE_URL",
+    "CI_LOCAL_HOST_DOCKER",
+    "DOCKER_CONFIG",
+    "DOCKER_HOST",
+    "STYNX_DATABASE_URL",
+    "STYNX_POSTGRES_PORT",
+    "STYNX_TEST_PG_HOST",
+    "STYNX_TEST_PG_PASSWORD",
+    "STYNX_TEST_PG_PORT",
+    "STYNX_TEST_PG_USER",
+    "STYNX_TEST_PG_SOCKET_DIR",
+    "TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE",
+    "TESTCONTAINERS_HOST_OVERRIDE",
+    "TESTCONTAINERS_REUSE_ENABLE"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "build/**"]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "test": {
+      "dependsOn": ["build", "^build"],
+      "outputs": [
+        ".test-results/unit.json",
+        ".test-results/unit.log",
+        ".test-results/unit.junit.xml"
+      ]
+    },
+    // Serialize the two suites that run veraPDF containers (linux/amd64 image
+    // emulated on the arm64 Docker VM, 4 CPUs/6GB). When both suites run
+    // concurrently under turbo, a conformance container can be starved past
+    // its 360s budget (observed: yearly-income exceeded 360s in a full run
+    // while the same spec passes in seconds alone). Each suite is already
+    // internally sequential (vitest singleThread), so this dependency keeps
+    // machine-wide veraPDF container concurrency at 1.
+    "@aarusso-nyx/stynx-pdf#test": {
+      "dependsOn": ["build", "^build", "@aarusso-nyx/stynx-pdf-a-vera-docker#test"],
+      "outputs": [
+        ".test-results/unit.json",
+        ".test-results/unit.log",
+        ".test-results/unit.junit.xml"
+      ]
+    },
+    "test:int": {
+      "dependsOn": ["build", "^build"],
+      "passThroughEnv": ["STYNX_TEST_PG_TEMPLATE"],
+      "outputs": [
+        ".test-results/integration.json",
+        ".test-results/integration.log",
+        ".test-results/integration.junit.xml"
+      ]
+    },
+    "test:e2e": {
+      "dependsOn": ["build", "^build"],
+      "outputs": [".test-results/e2e.json", ".test-results/e2e.log", ".test-results/e2e.junit.xml"]
+    }
+  }
+}

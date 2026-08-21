@@ -1,0 +1,48 @@
+{
+  "name": "@aarusso-nyx/stynx-internal-reference-web",
+  "private": true,
+  "version": "0.2.5",
+  "description": "Reference Angular 20 app exercising the STYNX web packages against reference-api",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:web": "node scripts/build-web.mjs",
+    "clean": "find dist .playwright -mindepth 0 -maxdepth 0 -exec rm -rf {} + 2>/dev/null || true",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint --config ../../tools/eslint-config/angular.mjs \"src/**/*.ts\"",
+    "serve": "node scripts/serve-static.mjs",
+    "test": "node --test test/unit/reference-web-config.spec.mjs",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@angular/common": "21.2.19",
+    "@angular/compiler": "21.2.19",
+    "@angular/core": "21.2.19",
+    "@angular/forms": "21.2.19",
+    "@angular/platform-browser": "21.2.19",
+    "@angular/platform-browser-dynamic": "21.2.19",
+    "@angular/router": "21.2.19",
+    "@aarusso-nyx/stynx-angular": "workspace:*",
+    "@aarusso-nyx/stynx-angular-auth": "workspace:*",
+    "@aarusso-nyx/stynx-angular-flow": "workspace:*",
+    "@aarusso-nyx/stynx-angular-iam": "workspace:*",
+    "@aarusso-nyx/stynx-angular-tenancy": "workspace:*",
+    "@aarusso-nyx/stynx-angular-i18n": "workspace:*",
+    "@aarusso-nyx/stynx-angular-profile": "workspace:*",
+    "@aarusso-nyx/stynx-angular-sessions": "workspace:*",
+    "@aarusso-nyx/stynx-angular-storage": "workspace:*",
+    "@aarusso-nyx/stynx-angular-trash": "workspace:*",
+    "@aarusso-nyx/stynx-angular-ui": "workspace:*",
+    "angular-auth-oidc-client": "^21.0.1",
+    "rxjs": "^7.8.2",
+    "zone.js": "^0.16.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
+    "@playwright/test": "^1.59.1",
+    "esbuild": "^0.28.0",
+    "typescript": "6.0.2"
+  }
+}

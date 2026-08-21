@@ -1,0 +1,71 @@
+{
+  "name": "@aarusso-nyx/stynx-angular-sessions",
+  "version": "0.6.0",
+  "license": "BUSL-1.1",
+  "author": "Antonio Augusto Russo <aarusso@nyxk.com.br>",
+  "description": "Angular 20/21 active-session widgets for stynx",
+  "exports": {
+    ".": {
+      "types": "./dist/types/aarusso-nyx-stynx-angular-sessions.d.ts",
+      "default": "./dist/fesm2022/aarusso-nyx-stynx-angular-sessions.mjs"
+    },
+    "./testing": {
+      "types": "./dist/types/aarusso-nyx-stynx-angular-sessions-testing.d.ts",
+      "default": "./dist/fesm2022/aarusso-nyx-stynx-angular-sessions-testing.mjs"
+    },
+    "./catalogs/en.json": {
+      "default": "./dist/catalogs/en.json"
+    },
+    "./catalogs/pt-BR.json": {
+      "default": "./dist/catalogs/pt-BR.json"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    }
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json && pnpm run normalize:dist-exports",
+    "clean": "rm -rf dist coverage",
+    "typecheck": "tsc -p tsconfig.spec.json --noEmit",
+    "lint": "eslint --config ../../tools/eslint-config/angular.mjs \"src/**/*.ts\"",
+    "test": "vitest run --config ./vitest.config.ts",
+    "stryker": "NODE_OPTIONS=\"--disable-warning=ExperimentalWarning --experimental-vm-modules\" pnpm exec stryker run stryker.conf.mjs",
+    "build:tsc": "tsc -p tsconfig.json",
+    "normalize:dist-exports": "node -e \"const fs=require('node:fs');const path='dist/package.json';const pkg=JSON.parse(fs.readFileSync(path,'utf8'));pkg.exports['./catalogs/en.json']={default:'./catalogs/en.json'};pkg.exports['./catalogs/pt-BR.json']={default:'./catalogs/pt-BR.json'};fs.writeFileSync(path, JSON.stringify(pkg,null,2)+'\\n');\""
+  },
+  "dependencies": {
+    "@aarusso-nyx/stynx-angular": "workspace:*",
+    "@aarusso-nyx/stynx-angular-auth": "workspace:*",
+    "@aarusso-nyx/stynx-angular-i18n": "workspace:*",
+    "@aarusso-nyx/stynx-angular-ui": "workspace:*",
+    "rxjs": "^7.8.2"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=20.3.0 <22",
+    "@angular/core": ">=20.3.0 <22"
+  },
+  "devDependencies": {
+    "@angular/common": "21.2.19",
+    "@angular/compiler": "21.2.19",
+    "@angular/compiler-cli": "21.2.19",
+    "@angular/core": "21.2.19",
+    "@angular/platform-browser": "21.2.19",
+    "@types/node": "24.12.4",
+    "jsdom": "^29.0.2",
+    "ng-packagr": "21.2.3",
+    "tslib": "^2.8.1",
+    "typescript": "5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aarusso-nyx/stynx.git",
+    "directory": "packages-web/angular-sessions"
+  }
+}

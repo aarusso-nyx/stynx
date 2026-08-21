@@ -1,0 +1,62 @@
+{
+  "name": "@aarusso-nyx/stynx-storage",
+  "version": "0.6.0",
+  "license": "BUSL-1.1",
+  "author": "Antonio Augusto Russo <aarusso@nyxk.com.br>",
+  "description": "Storage adapters and document primitives for stynx",
+  "main": "dist/storage/src/index.js",
+  "types": "dist/storage/src/index.d.ts",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/storage/src/index.d.ts",
+      "require": "./dist/storage/src/index.js",
+      "default": "./dist/storage/src/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist coverage",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint --config ../../tools/eslint-config/nest.mjs \"src/**/*.ts\"",
+    "test": "vitest run --config ./vitest.config.ts",
+    "test:int": "vitest run --config ./vitest.int.config.ts",
+    "stryker": "pnpm exec stryker run stryker.conf.mjs"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1037.0",
+    "@aws-sdk/s3-request-presigner": "^3.1037.0",
+    "@nestjs/schedule": "^6.1.3",
+    "@aarusso-nyx/stynx-contracts": "workspace:*",
+    "@aarusso-nyx/stynx-core": "workspace:*",
+    "@aarusso-nyx/stynx-data": "workspace:*",
+    "drizzle-orm": "^0.45.2",
+    "zod": "^4.3.6"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^11.1.19",
+    "@nestjs/core": "^11.1.19",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "@nestjs/platform-express": "^11.1.19",
+    "@nestjs/testing": "^11.1.19",
+    "@types/node": "24.12.4",
+    "@types/supertest": "^7.2.0",
+    "supertest": "^7.2.2",
+    "testcontainers": "^11.14.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aarusso-nyx/stynx.git",
+    "directory": "packages/storage"
+  }
+}

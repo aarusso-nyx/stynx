@@ -1,0 +1,50 @@
+{
+  "name": "@aarusso-nyx/stynx-cli",
+  "version": "0.6.0",
+  "license": "BUSL-1.1",
+  "author": "Antonio Augusto Russo <aarusso@nyxk.com.br>",
+  "description": "CLI for bootstrapping, doctor checks, migrations, privacy ROPA, and adoption helpers",
+  "main": "dist/cli/src/index.js",
+  "types": "dist/cli/src/index.d.ts",
+  "bin": {
+    "stynx": "dist/cli/src/main.js"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/cli/src/index.d.ts",
+      "require": "./dist/cli/src/index.js",
+      "default": "./dist/cli/src/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist coverage",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint --config ../../tools/eslint-config/lib.mjs \"src/**/*.ts\"",
+    "test": "vitest run --config ./vitest.config.ts",
+    "test:adopt": "vitest run --config ./vitest.config.ts test/adopt.spec.ts",
+    "stryker": "pnpm exec stryker run stryker.conf.mjs"
+  },
+  "dependencies": {
+    "@aarusso-nyx/stynx-privacy": "workspace:*",
+    "commander": "^14.0.3",
+    "pg": "^8.20.0",
+    "yaml": "^2.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "24.12.4",
+    "@types/pg": "^8.20.0",
+    "typescript": "^6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aarusso-nyx/stynx.git",
+    "directory": "packages/cli"
+  }
+}

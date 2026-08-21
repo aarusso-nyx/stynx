@@ -1,0 +1,57 @@
+{
+  "name": "@aarusso-nyx/stynx-testing",
+  "version": "0.6.0",
+  "license": "BUSL-1.1",
+  "author": "Antonio Augusto Russo <aarusso@nyxk.com.br>",
+  "description": "Testing harness and archive-aware matchers for stynx consumers",
+  "main": "dist/testing/src/index.js",
+  "types": "dist/testing/src/index.d.ts",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/testing/src/index.d.ts",
+      "require": "./dist/testing/src/index.js",
+      "default": "./dist/testing/src/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist coverage",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint --config ../../tools/eslint-config/nest.mjs \"src/**/*.ts\"",
+    "test": "vitest run --config ./vitest.config.ts",
+    "stryker": "pnpm exec stryker run stryker.conf.mjs"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.19",
+    "@nestjs/core": "^11.1.19",
+    "@nestjs/platform-express": "^11.1.19",
+    "@nestjs/testing": "^11.1.19",
+    "@aarusso-nyx/stynx-audit": "workspace:*",
+    "@aarusso-nyx/stynx-auth": "workspace:*",
+    "@aarusso-nyx/stynx-core": "workspace:*",
+    "@aarusso-nyx/stynx-data": "workspace:*",
+    "@aarusso-nyx/stynx-sessions": "workspace:*",
+    "@aarusso-nyx/stynx-storage": "workspace:*",
+    "drizzle-orm": "^0.45.2",
+    "redis": "^5.12.1",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "testcontainers": "^11.14.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.12.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aarusso-nyx/stynx.git",
+    "directory": "packages/testing"
+  }
+}
