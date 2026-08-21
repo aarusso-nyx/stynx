@@ -30,7 +30,7 @@ This is the repository-local engineering contract for all contributors.
 
 ## Release and security references
 
-When release state is uncertain, inspect `docs/adopters/stynx/release-readiness.md`,
+When release state is uncertain, inspect `docs/adopters/stynx/operational-readiness.md`,
 `docs/adopters/stynx/implementation-status.md`, and recent Git history before
 making a claim. The repository-specific dependency audit procedure is retained
 at `tools/npm-security-upgrade-auditor/`.

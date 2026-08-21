@@ -90,7 +90,7 @@ const config = {
         { to: '/docs/framework/', label: 'Framework', position: 'left' },
         { to: '/docs/api-reference/', label: 'API', position: 'left' },
         { to: '/docs/adopters/', label: 'Adopters', position: 'left' },
-        { to: '/docs/adopters/stynx/release-readiness', label: 'Status', position: 'left' },
+        { to: '/docs/adopters/stynx/operational-readiness', label: 'Status', position: 'left' },
         { type: 'docsVersionDropdown', position: 'right' },
       ],
     },
@@ -117,7 +117,7 @@ const config = {
         {
           title: 'Engineering Status',
           items: [
-            { label: 'Release readiness', to: '/docs/adopters/stynx/release-readiness' },
+            { label: 'Operational readiness', to: '/docs/adopters/stynx/operational-readiness' },
             { label: 'Implementation status', to: '/docs/adopters/stynx/implementation-status' },
           ],
         },

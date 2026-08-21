@@ -14,9 +14,9 @@ foreign application onto STYNX packages.
   packages to adopter-facing responsibilities.
 - [Consumer Adoption Guide](consumer-adoption-guide.md) summarizes the main
   integration path for teams consuming STYNX.
-- [Production Readiness Evidence](production-readiness-evidence.md) records the
-  current release-evidence posture without hiding open gaps.
+- [Operational Readiness](operational-readiness.md) records the current
+  release-evidence posture without hiding open gaps.
 - [Porting Pack](porting-pack/00-README.md) contains the agent-oriented
   migration playbook.
-- [Remaining Work](remaining-work.md) lists open follow-up work by adoption
-  theme.
+- [Implementation Status](implementation-status.md) lists current coverage and
+  open follow-up work by adoption theme.

@@ -16,9 +16,9 @@ This document is the current MVP operations bar for regulated STYNX adopters.
   by `pnpm security:release`.
 - Package provenance wiring is guarded by `pnpm release:provenance`.
 - The private regulated production bar is recorded in
-  [production-grade-private-regulated.md](production-grade-private-regulated.md)
-  with the evidence ledger in
-  [production-readiness-evidence.md](production-readiness-evidence.md).
+  [production-grade-private-regulated.md](/docs/adopters/stynx/production-grade-private-regulated)
+  with current coverage recorded in
+  [implementation-status.md](/docs/adopters/stynx/implementation-status).
 
 ## Install Verification
 

@@ -474,7 +474,7 @@ function syncPublicStynxDocs() {
     ['implementation-status.md', 'narrative/stynx/implementation-status.md', 'Implementation Status'],
     ['package-architecture.md', 'narrative/stynx/package-architecture.md', 'Package Architecture'],
     ['porm-flow-deprecation-readiness.md', 'narrative/stynx/porm-flow-deprecation-readiness.md', 'PORM Flow Deprecation Readiness'],
-    ['release-readiness.md', 'narrative/stynx/release-readiness.md', 'Release Readiness'],
+    ['operational-readiness.md', 'narrative/stynx/operational-readiness.md', 'Operational Readiness'],
   ];
 
   for (const [sourceName, target, title] of docs) {
