@@ -7,11 +7,10 @@ const reference = readFileSync(
   resolve(repoRoot, 'docs/adopters/stynx/production-grade-private-regulated.md'),
   'utf8',
 );
-const evidence = readFileSync(
-  resolve(repoRoot, 'docs/adopters/stynx/production-readiness-evidence.md'),
+const operational = readFileSync(
+  resolve(repoRoot, 'docs/adopters/stynx/operational-readiness.md'),
   'utf8',
 );
-const operational = readFileSync(resolve(repoRoot, 'docs/adopters/stynx/operational-readiness.md'), 'utf8');
 const packageJson = JSON.parse(readFileSync(resolve(repoRoot, 'package.json'), 'utf8'));
 const failures = [];
 const normalizedReference = reference.replace(/\s+/gu, ' ');
@@ -51,7 +50,9 @@ const requiredCommands = [
 ];
 
 if (!normalizedReference.includes('private regulated deployment')) {
-  failures.push('production-grade reference must define production-grade as private regulated deployment');
+  failures.push(
+    'production-grade reference must define production-grade as private regulated deployment',
+  );
 }
 for (const agent of requiredAgents) {
   if (!reference.includes(agent)) failures.push(`production-grade reference missing ${agent}`);
@@ -60,8 +61,8 @@ for (const action of requiredHumanActions) {
   if (!reference.includes(action)) failures.push(`production-grade reference missing ${action}`);
 }
 for (const command of requiredCommands) {
-  if (!evidence.includes(command) && !operational.includes(command)) {
-    failures.push(`readiness evidence or operations doc missing ${command}`);
+  if (!operational.includes(command)) {
+    failures.push(`operational-readiness authority missing ${command}`);
   }
 }
 for (const scriptName of [
