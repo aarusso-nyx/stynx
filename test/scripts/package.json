@@ -1,0 +1,8 @@
+{
+  "name": "@aarusso-nyx/stynx-internal-test-scripts",
+  "private": true,
+  "scripts": {
+    "test": "node validate.js",
+    "lint": "eslint --config ../../tools/eslint-config/scripts.mjs \"./**/*.js\""
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "extends": "../../tools/tsconfig/node24.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "paths": {
+      "@aarusso-nyx/stynx-auth": ["./support/auth-stub.ts"],
+      "@aarusso-nyx/stynx-audit": ["../../packages/audit/src/index.ts"],
+      "@aarusso-nyx/stynx-core": ["../../packages/core/src/index.ts"],
+      "@aarusso-nyx/stynx-data": ["./support/data-stub.ts"],
+      "@aarusso-nyx/stynx-health": ["../../packages/health/src/index.ts"],
+      "@aarusso-nyx/stynx-backend": ["../../packages/backend/src/index.ts"],
+      "@aarusso-nyx/stynx-idempotency": ["../../packages/idempotency/src/index.ts"],
+      "@aarusso-nyx/stynx-logging": ["../../packages/logging/src/index.ts"],
+      "@aarusso-nyx/stynx-ratelimit": ["../../packages/ratelimit/src/index.ts"],
+      "@aarusso-nyx/stynx-sessions": ["../../packages/sessions/src/index.ts"],
+      "@aarusso-nyx/stynx-storage": ["../../packages/storage/src/index.ts"],
+      "@aarusso-nyx/stynx-contracts": ["../../packages/contracts/src/index.ts"],
+      "@aarusso-nyx/stynx-sdk": ["../../packages-web/sdk/src/index.ts"]
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": ["./**/*.ts"]
+}

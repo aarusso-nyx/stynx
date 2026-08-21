@@ -1,0 +1,17 @@
+{
+  "name": "@aarusso-nyx/stynx-internal-test-db",
+  "private": true,
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "test": "vitest run --config ./vitest.config.ts",
+    "test:db": "vitest run --config ./vitest.config.ts",
+    "lint": "eslint --config ../../tools/eslint-config/test.mjs \"./**/*.ts\""
+  },
+  "devDependencies": {
+    "@types/node": "25.6.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}

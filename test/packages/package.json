@@ -1,0 +1,21 @@
+{
+  "name": "@aarusso-nyx/stynx-internal-test-packages",
+  "private": true,
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "test": "vitest run --config ./vitest.config.ts",
+    "lint": "eslint --config ../../tools/eslint-config/test.mjs \"./**/*.ts\""
+  },
+  "devDependencies": {
+    "@nestjs/common": "^11.1.19",
+    "@nestjs/core": "^11.1.19",
+    "@aarusso-nyx/stynx-sdk": "workspace:*",
+    "@types/node": "25.6.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}
