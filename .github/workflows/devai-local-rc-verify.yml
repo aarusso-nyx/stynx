@@ -92,6 +92,13 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
+      - name: Separate checkout metadata from proof bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -e evidence/.git
+          mv evidence/.git "$RUNNER_TEMP/devai-proof-git-metadata"
+
       - name: Reconstruct exact RC task policy
         id: policy
         shell: bash
