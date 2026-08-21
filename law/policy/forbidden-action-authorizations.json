@@ -1,5 +1,66 @@
 {
   "$schema": "https://devai.nyxk.com.br/schemas/forbidden-action-authorizations.schema.json",
   "schemaVersion": "1.0.0",
-  "authorizations": []
+  "authorizations": [
+    {
+      "forbidden_id": "FORBID-MUTATE-INVARIANTS",
+      "commit": "8db16edc1cb66acdc203a76af384bb5d2c56fa7f",
+      "authorized_by": "Owner",
+      "reason": "Establishes the approved history-free 0.6.0 product authority without changing or weakening product behavior."
+    },
+    {
+      "forbidden_id": "FORBID-DROP-PROD",
+      "commit": "f7b3b447f368b75626976327807d1a4bb590584e",
+      "authorized_by": "Owner",
+      "reason": "Preserves reviewed recovery and migration documentation; it does not execute a database operation."
+    },
+    {
+      "forbidden_id": "FORBID-RM-RF",
+      "commit": "f7b3b447f368b75626976327807d1a4bb590584e",
+      "authorized_by": "Owner",
+      "reason": "Preserves bounded generated-site cleanup commands and does not remove repository or user data."
+    },
+    {
+      "forbidden_id": "FORBID-CI-WITHOUT-ADR",
+      "commit": "f7b3b447f368b75626976327807d1a4bb590584e",
+      "authorized_by": "Owner",
+      "reason": "Installs the reviewed 0.6.0 CI and trusted local-RC boundary governed by the accepted genesis and local-RC ADRs."
+    },
+    {
+      "forbidden_id": "FORBID-MUTATE-INVARIANTS",
+      "commit": "f7b3b447f368b75626976327807d1a4bb590584e",
+      "authorized_by": "Owner",
+      "reason": "Rebinds existing invariant and trace authority to the approved 0.6.0 identities without weakening any invariant or test."
+    },
+    {
+      "forbidden_id": "FORBID-DROP-PROD",
+      "commit": "3feee3ae1224d6b6061835b15946a7bd604aa7e2",
+      "authorized_by": "Owner",
+      "reason": "Preserves exact test assertions for destructive-operation safeguards; it does not execute a production database operation."
+    },
+    {
+      "forbidden_id": "FORBID-DROP-PROD",
+      "commit": "021e6d46287894f2943a31c33520f209f77fa63b",
+      "authorized_by": "Owner",
+      "reason": "Preserves existing database tooling and safety documentation in the product genesis; it does not execute a production database operation."
+    },
+    {
+      "forbidden_id": "FORBID-RM-RF",
+      "commit": "021e6d46287894f2943a31c33520f209f77fa63b",
+      "authorized_by": "Owner",
+      "reason": "Preserves bounded cleanup implementations from the terminal product tree; it does not remove repository or user data during genesis."
+    },
+    {
+      "forbidden_id": "FORBID-EXTERNAL-MESSAGES",
+      "commit": "021e6d46287894f2943a31c33520f209f77fa63b",
+      "authorized_by": "Owner",
+      "reason": "Preserves application email and notification vocabulary; the genesis action sends no external message."
+    },
+    {
+      "forbidden_id": "FORBID-SECRETS-PROD",
+      "commit": "021e6d46287894f2943a31c33520f209f77fa63b",
+      "authorized_by": "Owner",
+      "reason": "Preserves infrastructure and configuration source while committing no secret and performing no production secret-store mutation."
+    }
+  ]
 }
