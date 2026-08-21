@@ -4,6 +4,18 @@
   "authorizations": [
     {
       "forbidden_id": "FORBID-MUTATE-INVARIANTS",
+      "commit": "036a55569698e30cfc62746d7d823a88a0e43393",
+      "authorized_by": "Owner",
+      "reason": "Rebinds only the approved rotated package credential digest used by task-scoped RC execution; no secret value or invariant is changed."
+    },
+    {
+      "forbidden_id": "FORBID-MUTATE-INVARIANTS",
+      "commit": "8e29f4d481fb152562a963623e671ab2630d7909",
+      "authorized_by": "Owner",
+      "reason": "Records the prior approved genesis binding receipts and makes no invariant or requirement weaker."
+    },
+    {
+      "forbidden_id": "FORBID-MUTATE-INVARIANTS",
       "commit": "bfa6ee22c8f465221e16ac860ad25858af18810f",
       "authorized_by": "Owner",
       "reason": "Materializes the approved DEVAI 1.2 host adapters through supported bind commands; it does not alter canonical invariants or weaken policy."
