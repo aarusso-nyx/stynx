@@ -4,6 +4,18 @@
   "authorizations": [
     {
       "forbidden_id": "FORBID-MUTATE-INVARIANTS",
+      "commit": "bfa6ee22c8f465221e16ac860ad25858af18810f",
+      "authorized_by": "Owner",
+      "reason": "Materializes the approved DEVAI 1.2 host adapters through supported bind commands; it does not alter canonical invariants or weaken policy."
+    },
+    {
+      "forbidden_id": "FORBID-MUTATE-INVARIANTS",
+      "commit": "62c84b6f13aa7ff29fb5bcfd62989b6cf54f62f8",
+      "authorized_by": "Owner",
+      "reason": "Records the Owner-approved 0.6.0 genesis authorization receipts; it does not change an invariant or reduce a governed requirement."
+    },
+    {
+      "forbidden_id": "FORBID-MUTATE-INVARIANTS",
       "commit": "8db16edc1cb66acdc203a76af384bb5d2c56fa7f",
       "authorized_by": "Owner",
       "reason": "Establishes the approved history-free 0.6.0 product authority without changing or weakening product behavior."
