@@ -1,0 +1,119 @@
+name: STYNX Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      candidate_sha:
+        description: Exact 40-character main commit authorized for package publication
+        required: false
+        default: ''
+        type: string
+      publish:
+        description: Publish versioned packages and create GitHub Releases
+        required: true
+        default: false
+        type: boolean
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  id-token: write
+  packages: write
+  pull-requests: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+  NODE_VERSION: '24'
+  # GitHub Packages publishes are restricted and do not support npm
+  # provenance. Forcing false prevents an ambient runner setting from
+  # recreating the EUSAGE failures recorded in runs 29102848562 and
+  # 29109128724. Keep this aligned with changesets-publish-ci.mjs and the
+  # release-provenance verifier.
+  NPM_CONFIG_PROVENANCE: 'false'
+  PNPM_VERSION: '9.15.0'
+  # A main push may prepare or update the Changesets release PR, but can never
+  # publish packages. Publication requires both an explicit publish:true
+  # workflow dispatch and the Owner-controlled repository opt-in.
+  STYNX_ENABLE_REGISTRY_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && inputs.publish == true && vars.STYNX_ENABLE_REGISTRY_PUBLISH == 'true' && 'true' || 'false' }}
+
+jobs:
+  release:
+    name: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          fetch-depth: 0
+
+      - name: Verify exact-main publication authorization
+        env:
+          AUTHORIZED_CANDIDATE_SHA: ${{ inputs.candidate_sha || '' }}
+          OWNER_PUBLISH_OPT_IN: ${{ vars.STYNX_ENABLE_REGISTRY_PUBLISH || 'false' }}
+          PUBLISH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PUBLISH_REQUESTED: ${{ github.event_name == 'workflow_dispatch' && inputs.publish == true && 'true' || 'false' }}
+        run: |
+          if [ "$PUBLISH_REQUESTED" != 'true' ]; then
+            exit 0
+          fi
+          if [ "$OWNER_PUBLISH_OPT_IN" != 'true' ]; then
+            echo 'Package publication requires the Owner-controlled repository opt-in' >&2
+            exit 1
+          fi
+          if [ -z "$PUBLISH_TOKEN" ]; then
+            echo 'Package publication requires the protected NPM_TOKEN secret' >&2
+            exit 1
+          fi
+          if ! printf '%s' "$AUTHORIZED_CANDIDATE_SHA" | grep -Eq '^[0-9a-f]{40}$'; then
+            echo 'candidate_sha must be a full lowercase Git commit SHA' >&2
+            exit 1
+          fi
+          if [ "$GITHUB_REF" != 'refs/heads/main' ]; then
+            echo 'Package publication must be dispatched from main' >&2
+            exit 1
+          fi
+          git fetch --no-tags origin refs/heads/main:refs/remotes/origin/main
+          test "$(git rev-parse HEAD)" = "$AUTHORIZED_CANDIDATE_SHA"
+          test "$(git rev-parse origin/main)" = "$AUTHORIZED_CANDIDATE_SHA"
+      - uses: pnpm/action-setup@a8198c4bff370c8506180b035930dea56dbd5288 # v5
+        with:
+          version: ${{ env.PNPM_VERSION }}
+          run_install: false
+
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+          registry-url: https://npm.pkg.github.com
+
+      - name: Install workspace dependencies
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.DEVAI_REPO_TOKEN || github.token }}
+        run: pnpm install --frozen-lockfile
+
+      - name: Build publishable STYNX workspace packages
+        run: pnpm build
+
+      - name: Run Changesets release flow
+        uses: changesets/action@d94a5c301145045a0960133674e003b265942a22 # v1.8.0
+        with:
+          version: pnpm version-packages
+          publish: pnpm release:publish:ci
+          commit: 'ci: version packages'
+          title: 'ci: version packages'
+          createGithubReleases: true
+          setupGitUser: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # PAT-created packages carry no per-package Actions write grant, so
+          # the ambient GITHUB_TOKEN 403s on publish (write_package) despite
+          # repository linkage. NPM_TOKEN keeps waves autonomous; once the
+          # owner grants 'Manage Actions access' per package in the UI, delete
+          # the secret and the ambient-token fallback takes over.
+          NODE_AUTH_TOKEN: ${{ github.event_name == 'workflow_dispatch' && inputs.publish == true && secrets.NPM_TOKEN || secrets.GITHUB_TOKEN }}

@@ -1,0 +1,52 @@
+name: Semantic PR Title
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+      - ready_for_review
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: semantic-pr-title-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  semantic-pr-title:
+    name: semantic-pr-title
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      - uses: pnpm/action-setup@a8198c4bff370c8506180b035930dea56dbd5288 # v5
+        with:
+          version: 9.15.0
+          run_install: false
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: '24'
+          cache: pnpm
+          cache-dependency-path: |
+            pnpm-lock.yaml
+            package.json
+            pnpm-workspace.yaml
+            tools/repo-config/commitlint.config.cjs
+      - name: Install commitlint dependencies
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.DEVAI_REPO_TOKEN || github.token }}
+        run: pnpm install --frozen-lockfile
+      - name: Validate PR title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: printf '%s\n' "$PR_TITLE" | pnpm exec commitlint --config tools/repo-config/commitlint.config.cjs
+      - name: Document accepted title shapes
+        run: |
+          cat <<'EOF'
+          Accepted PR title shapes are defined by tools/repo-config/commitlint.config.cjs:
+          - Conventional Commits, e.g. fix(repo): close migration gate
+          EOF

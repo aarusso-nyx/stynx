@@ -1,0 +1,3 @@
+# >>> devai hooks install >>>
+./node_modules/.bin/devai check --only forbidden-actions --strict
+# <<< devai hooks install <<<

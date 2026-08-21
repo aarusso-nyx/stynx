@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$comment": "Category manifest consumed by docs/site/scripts/sync-content.mjs. Update this file to reorder categories in the published site.",
+  "sections": [
+    {
+      "id": "start",
+      "label": "Start here",
+      "position": 1
+    },
+    {
+      "id": "framework",
+      "label": "Framework",
+      "position": 2
+    },
+    {
+      "id": "adopters",
+      "label": "Adopters",
+      "position": 3
+    },
+    {
+      "id": "reference",
+      "label": "Reference",
+      "position": 4
+    },
+    {
+      "id": "meta",
+      "label": "Meta",
+      "position": 5
+    }
+  ],
+  "categories": {
+    "framework/api": {
+      "label": "API",
+      "position": 1
+    },
+    "framework/arch": {
+      "label": "Architecture",
+      "position": 2
+    },
+    "framework/contracts": {
+      "label": "Contracts",
+      "position": 3
+    },
+    "framework/schemas": {
+      "label": "Schemas",
+      "position": 4
+    },
+    "framework/product": {
+      "label": "Product specifications",
+      "position": 7
+    },
+    "framework/glossary": {
+      "label": "Glossary",
+      "position": 8
+    },
+    "adopters/stynx": {
+      "label": "STYNX adoption pack",
+      "position": 3
+    },
+    "meta/adr": {
+      "label": "ADRs",
+      "position": 1
+    },
+    "meta/dev": {
+      "label": "Development",
+      "position": 2
+    },
+    "meta/eng": {
+      "label": "Engineering",
+      "position": 3
+    },
+    "meta/ops": {
+      "label": "Operations",
+      "position": 5
+    },
+    "meta/security": {
+      "label": "Security",
+      "position": 6
+    },
+    "meta/sys": {
+      "label": "Systems",
+      "position": 7
+    },
+    "meta/rfcs": {
+      "label": "RFCs",
+      "position": 8
+    },
+    "meta/templates": {
+      "label": "Templates",
+      "position": 9
+    }
+  },
+  "rootFileAllowlist": [
+    {
+      "source": "README.md",
+      "dest": "start/readme.md",
+      "section": "start"
+    },
+    {
+      "source": "CHANGELOG.md",
+      "dest": "meta/changelog.md",
+      "section": "meta"
+    },
+    {
+      "source": "CONTRIBUTING.md",
+      "dest": "meta/contributing.md",
+      "section": "meta"
+    },
+    {
+      "source": "AGENTS.md",
+      "dest": "meta/agents.md",
+      "section": "meta"
+    }
+  ],
+  "outOfIa": ["work/", "_ia/", "site/"]
+}
