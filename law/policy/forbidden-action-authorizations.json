@@ -4,6 +4,18 @@
   "authorizations": [
     {
       "forbidden_id": "FORBID-MUTATE-INVARIANTS",
+      "commit": "f35910bad8f307f2961835f3de7db0b0483ecb53",
+      "authorized_by": "Owner",
+      "reason": "Rotates only the trusted local-RC environment digest to the approved replacement package credential; no secret value, invariant, test, or threshold is changed."
+    },
+    {
+      "forbidden_id": "FORBID-MUTATE-INVARIANTS",
+      "commit": "a9e1c27f5434437f3ac541a219a820ebd4f3cd8b",
+      "authorized_by": "Owner",
+      "reason": "Rematerializes only the supported DEVAI authority binding for the canonical public repository identity; no invariant, test, threshold, or product behavior is weakened."
+    },
+    {
+      "forbidden_id": "FORBID-MUTATE-INVARIANTS",
       "commit": "036a55569698e30cfc62746d7d823a88a0e43393",
       "authorized_by": "Owner",
       "reason": "Rebinds only the approved rotated package credential digest used by task-scoped RC execution; no secret value or invariant is changed."
