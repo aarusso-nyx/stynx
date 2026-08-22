@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-adr/2026-08-16-trusted-local-rc-evidence" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">ADR — Trusted local RC evidence and mutation execution boundary | STYNX</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://aarusso-nyx.github.io/stynx/docs/adr/2026-08-16-trusted-local-rc-evidence"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="ADR — Trusted local RC evidence and mutation execution boundary | STYNX"><meta data-rh="true" name="description" content="- Status: Accepted for DEVAI 1.2 cutover"><meta data-rh="true" property="og:description" content="- Status: Accepted for DEVAI 1.2 cutover"><link data-rh="true" rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23111827%22/%3E%3Cpath d=%22M8 10h16v3H18v9h-4v-9H8z%22 fill=%22%23f8fafc%22/%3E%3C/svg%3E"><link data-rh="true" rel="canonical" href="https://aarusso-nyx.github.io/stynx/docs/adr/2026-08-16-trusted-local-rc-evidence"><link data-rh="true" rel="alternate" href="https://aarusso-nyx.github.io/stynx/docs/adr/2026-08-16-trusted-local-rc-evidence" hreflang="en"><link data-rh="true" rel="alternate" href="https://aarusso-nyx.github.io/stynx/docs/adr/2026-08-16-trusted-local-rc-evidence" hreflang="x-default"><link rel="stylesheet" href="/stynx/assets/css/styles.38f2e56e.css">
+<script src="/stynx/assets/js/runtime~main.51513abf.js" defer="defer"></script>
+<script src="/stynx/assets/js/main.631d8091.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_r1q4" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/stynx/"><b class="navbar__title text--truncate">STYNX</b></a><a class="navbar__item navbar__link" href="/stynx/docs/adopters/stynx/">Use STYNX</a><a class="navbar__item navbar__link" href="/stynx/docs/framework/">Framework</a><a class="navbar__item navbar__link" href="/stynx/docs/api-reference/">API</a><a class="navbar__item navbar__link" href="/stynx/docs/adopters/">Adopters</a><a class="navbar__item navbar__link" href="/stynx/docs/adopters/stynx/operational-readiness">Status</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/stynx/docs/adr/2026-08-16-trusted-local-rc-evidence">v0</a><div class="toggle_NCLE colorModeToggle_ZQYg"><button class="clean-btn toggleButton_vsxE toggleButtonDisabled_M9ej" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_i8Ze lightToggleIcon_zm6s"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_i8Ze darkToggleIcon_PqIV"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_i8Ze systemToggleIcon_C30F"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_tMO3"><div class="navbar__search searchBarContainer_i4wO" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_W3Ti" value=""><div class="loadingRing_oVPI searchBarLoadingRing_xxks"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_XDiU"><div class="docsWrapper_Qd0P"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_fM53" type="button"></button><div class="docRoot_T0w_"><main class="docMainContainer_K44w docMainContainerEnhanced_OJO5"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_qsVs"><div class="docItemContainer_q3nk"><article><div class="tocCollapsible_ic8n theme-doc-toc-mobile tocMobile_JdIm"><button type="button" class="clean-btn tocCollapsibleButton_ys1K">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>ADR — Trusted local RC evidence and mutation execution boundary</h1></header>
+<ul>
+<li class=""><strong>Status:</strong> Accepted for DEVAI 1.2 cutover</li>
+<li class=""><strong>Date:</strong> 2026-08-16</li>
+<li class=""><strong>Authority:</strong> Architect, under the Owner&#x27;s explicit adoption and publication authorization</li>
+<li class=""><strong>Amends:</strong> <code>2026-05-19-test-gate-tiers.md</code></li>
+<li class=""><strong>Supersedes on cutover:</strong> Decisions D2 and D4 of <code>2026-05-21-mutation-thresholds-tiered.md</code></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_LaOX" id="context">Context<a href="#context" class="hash-link" aria-label="Direct link to Context" title="Direct link to Context" translate="no">​</a></h2>
+<p>STYNX requires the complete mutation floor as readiness-bearing evidence, but executing every
+Stryker package on GitHub Actions makes the comprehensive gate take several hours. Moving
+mutation execution away from GitHub must preserve every configured package, threshold, test, and
+dependency while failing closed when proof is absent or invalid.</p>
+<p>The exact-main census at <code>98aa8283b</code> discovers 32 workspaces that declare both a Stryker command
+and one Stryker configuration. This count is an observed snapshot, not a permanent allowlist. The
+previous adoption plan&#x27;s fixed count of 31 became stale when <code>@aarusso-nyx/stynx-preferences</code> acquired its
+governed mutation suite.</p>
+<h2 class="anchor anchorTargetStickyNavbar_LaOX" id="decision">Decision<a href="#decision" class="hash-link" aria-label="Direct link to Decision" title="Direct link to Decision" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_LaOX" id="d1-mutation-is-a-local-only-rc-node">D1. Mutation is a local-only RC node<a href="#d1-mutation-is-a-local-only-rc-node" class="hash-link" aria-label="Direct link to D1. Mutation is a local-only RC node" title="Direct link to D1. Mutation is a local-only RC node" translate="no">​</a></h3>
+<p><code>test:mutation</code> remains part of the DEVAI <code>rc</code> dependency closure and retains the existing serial
+workspace execution and thresholds. It may execute only on an approved Inspector workstation.
+GitHub workflows must not directly or transitively invoke <code>test:mutation</code>, Stryker, or an alias
+that can resolve to either command.</p>
+<p>Remote mutation is not a fallback. Missing, invalid, stale, incomplete, revoked, or mismatched
+local evidence blocks readiness.</p>
+<h3 class="anchor anchorTargetStickyNavbar_LaOX" id="d2-the-required-mutation-roster-is-discovered-not-hard-coded">D2. The required mutation roster is discovered, not hard-coded<a href="#d2-the-required-mutation-roster-is-discovered-not-hard-coded" class="hash-link" aria-label="Direct link to D2. The required mutation roster is discovered, not hard-coded" title="Direct link to D2. The required mutation roster is discovered, not hard-coded" translate="no">​</a></h3>
+<p>The authoritative requirement is the exact deterministic roster discovered from current
+workspace manifests and Stryker configuration files. The local exporter and independent remote
+verifier must recompute the same roster and reconcile it with the STYNX test policy and exact N/A
+declarations.</p>
+<p>At adoption entry the roster contains 32 packages. Any addition, removal, rename, duplicate
+configuration, missing command, missing report, unknown report, or policy mismatch changes the
+roster digest, invalidates earlier evidence, and requires a new RC receipt. No package may be
+silently excluded to preserve a historical count.</p>
+<h3 class="anchor anchorTargetStickyNavbar_LaOX" id="d3-one-signed-rc-receipt-per-exact-candidate">D3. One signed RC receipt per exact candidate<a href="#d3-one-signed-rc-receipt-per-exact-candidate" class="hash-link" aria-label="Direct link to D3. One signed RC receipt per exact candidate" title="Direct link to D3. One signed RC receipt per exact candidate" translate="no">​</a></h3>
+<p>An Inspector runs the DEVAI <code>rc</code> profile once for a clean exact candidate. Content-addressed task
+results may be reused when their task keys and dependencies are unchanged, but every candidate
+receives a new signed envelope bound to its repository, commit, exact Git tree, task policy,
+toolchain, environment, outputs, and signer.</p>
+<p>Mutation evidence contains one normalized result and one canonical JSON report for every package
+in the discovered roster. The verifier independently recomputes roster completeness, artifact
+digests, scores, threshold decisions, aggregate totals, task keys, and dependency closure.</p>
+<h3 class="anchor anchorTargetStickyNavbar_LaOX" id="d4-protected-tag-transport-and-remote-verification">D4. Protected-tag transport and remote verification<a href="#d4-protected-tag-transport-and-remote-verification" class="hash-link" aria-label="Direct link to D4. Protected-tag transport and remote verification" title="Direct link to D4. Protected-tag transport and remote verification" translate="no">​</a></h3>
+<p>Evidence is published under the immutable protected tag
+<code>devai-local-evidence/&amp;lt;git-tree-sha&amp;gt;</code>. The remote <code>verified-local-rc</code> check validates an exact PR
+candidate and may validate merged main only when its Git tree is byte-identical to the attested
+tree. The verifier executes no STYNX product command and describes the result as trusted local
+attestation, not independently reproduced CI.</p>
+<p>The Inspector private key remains outside STYNX and GitHub. STYNX law contains only approved
+public signer and revocation controls. Signer admission, evidence-tag rules, branch-protection
+cutover, and any one-time bootstrap bypass remain explicit Owner-controlled effects.</p>
+<h3 class="anchor anchorTargetStickyNavbar_LaOX" id="d5-activation-is-atomic">D5. Activation is atomic<a href="#d5-activation-is-atomic" class="hash-link" aria-label="Direct link to D5. Activation is atomic" title="Direct link to D5. Activation is atomic" translate="no">​</a></h3>
+<p>This decision becomes operational only after all of the following hold together:</p>
+<ol>
+<li class="">Published DEVAI 1.2 and the independently pinned verifier support the declared contract.</li>
+<li class="">STYNX binds <code>law/policy/devai-adoption.json</code> through the supported adopter-policy interface.</li>
+<li class="">All GitHub mutation execution paths are removed and the static local-only check passes.</li>
+<li class="">A complete 32-package snapshot proof verifies for the bootstrap candidate.</li>
+<li class="">Exact-main tree-equivalent verification succeeds after the authorized bootstrap merge.</li>
+<li class="">Branch protection requires <code>verified-local-rc</code> and no longer requires the retired closure
+context.</li>
+</ol>
+<p>Until that atomic cutover completes, this ADR authorizes implementation but does not assert that
+trusted-local-RC adoption is operational.</p>
+<h3 class="anchor anchorTargetStickyNavbar_LaOX" id="d6-mutation-evidence-is-a-credential-free-portable-boundary">D6. Mutation evidence is a credential-free portable boundary<a href="#d6-mutation-evidence-is-a-credential-free-portable-boundary" class="hash-link" aria-label="Direct link to D6. Mutation evidence is a credential-free portable boundary" title="Direct link to D6. Mutation evidence is a credential-free portable boundary" translate="no">​</a></h3>
+<p>The local RC graph may require registry credentials for independently scoped security or release
+preparation nodes. Those credentials are not mutation inputs. DEVAI must deliver only each task&#x27;s
+own declared environment, and the STYNX mutation wrapper must construct its child environment from
+the mutation node&#x27;s explicit infrastructure allowlist plus the minimum process bootstrap variables.
+Registry credentials, GitHub credentials, signing keys, and unrelated CI secrets are excluded.</p>
+<p>Every package report is normalized before it crosses the evidence boundary. The exact repository
+root is replaced with <code>.</code>, remaining workstation-specific absolute paths and credential-shaped
+values are rejected, and only canonical JSON reports plus normalized result records are exported.
+Raw Stryker JSON, HTML, and logs are not evidence and are removed after both successful and failed
+normalization attempts. The independently pinned verifier repeats the content-safety checks before
+signing, publication, and remote acceptance.</p>
+<p>This is defense in depth. Pattern matching does not prove that every possible secret can be
+recognized, and trusted local attestation still does not prove that the Inspector workstation was
+uncompromised.</p>
+<h2 class="anchor anchorTargetStickyNavbar_LaOX" id="consequences">Consequences<a href="#consequences" class="hash-link" aria-label="Direct link to Consequences" title="Direct link to Consequences" translate="no">​</a></h2>
+<ul>
+<li class="">Fast remote PR gates continue to run lint, typecheck, unit, integration, build, reference,
+documentation, database, E2E, performance, security, release-preparation, and observation work
+that is safe for GitHub execution.</li>
+<li class="">A cold local RC can still take several hours; subsequent exact candidates may reuse only
+content-addressed results whose full inputs and dependencies are unchanged.</li>
+<li class="">A candidate code change invalidates the candidate receipt even when every reusable task key is
+unchanged.</li>
+<li class="">Trust establishes signer identity, byte integrity, exact inputs, and declared policy
+compliance. It does not independently prove that an uncompromised workstation executed the
+commands.</li>
+<li class="">If protected transport or verification fails after cutover, merges stop. Restoring remote
+mutation requires a new explicit Owner decision.</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_h6M7 thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#context" class="table-of-contents__link toc-highlight">Context</a></li><li><a href="#decision" class="table-of-contents__link toc-highlight">Decision</a><ul><li><a href="#d1-mutation-is-a-local-only-rc-node" class="table-of-contents__link toc-highlight">D1. Mutation is a local-only RC node</a></li><li><a href="#d2-the-required-mutation-roster-is-discovered-not-hard-coded" class="table-of-contents__link toc-highlight">D2. The required mutation roster is discovered, not hard-coded</a></li><li><a href="#d3-one-signed-rc-receipt-per-exact-candidate" class="table-of-contents__link toc-highlight">D3. One signed RC receipt per exact candidate</a></li><li><a href="#d4-protected-tag-transport-and-remote-verification" class="table-of-contents__link toc-highlight">D4. Protected-tag transport and remote verification</a></li><li><a href="#d5-activation-is-atomic" class="table-of-contents__link toc-highlight">D5. Activation is atomic</a></li><li><a href="#d6-mutation-evidence-is-a-credential-free-portable-boundary" class="table-of-contents__link toc-highlight">D6. Mutation evidence is a credential-free portable boundary</a></li></ul></li><li><a href="#consequences" class="table-of-contents__link toc-highlight">Consequences</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/adopters/stynx/">Use STYNX</a></li><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/packages/">Packages</a></li><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/packages-web/">Web Packages</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Reference</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/api-reference/">API Reference</a></li><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/framework/contracts/">Contracts</a></li><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/framework/arch/">Architecture</a></li><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/glossary/">Glossary</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Engineering Status</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/adopters/stynx/operational-readiness">Operational readiness</a></li><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/adopters/stynx/implementation-status">Implementation status</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Antonio A. Russo (<a href="mailto:aarusso@nyxk.com.br" style="color:inherit;text-decoration:underline">aarusso@nyxk.com.br</a>).<br>STYNX — a multi-tenant platform foundation of reusable backend and Angular libraries for building governed SaaS applications. v0<br>Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

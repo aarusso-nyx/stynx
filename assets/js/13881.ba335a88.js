@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_aarusso_nyx_stynx_internal_docs_site=self.webpackChunk_aarusso_nyx_stynx_internal_docs_site||[]).push([[13881],{13881(s,e,_){_.d(e,{createArchitectureServices:()=>t.S});var t=_(47762);_(49647)}}]);

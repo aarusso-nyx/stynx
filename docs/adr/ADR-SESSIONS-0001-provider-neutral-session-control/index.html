@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-adr/ADR-SESSIONS-0001-provider-neutral-session-control" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">Provider-neutral session inventory and control | STYNX</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://aarusso-nyx.github.io/stynx/docs/adr/ADR-SESSIONS-0001-provider-neutral-session-control"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Provider-neutral session inventory and control | STYNX"><meta data-rh="true" name="description" content="Status: Accepted architecture decision."><meta data-rh="true" property="og:description" content="Status: Accepted architecture decision."><link data-rh="true" rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23111827%22/%3E%3Cpath d=%22M8 10h16v3H18v9h-4v-9H8z%22 fill=%22%23f8fafc%22/%3E%3C/svg%3E"><link data-rh="true" rel="canonical" href="https://aarusso-nyx.github.io/stynx/docs/adr/ADR-SESSIONS-0001-provider-neutral-session-control"><link data-rh="true" rel="alternate" href="https://aarusso-nyx.github.io/stynx/docs/adr/ADR-SESSIONS-0001-provider-neutral-session-control" hreflang="en"><link data-rh="true" rel="alternate" href="https://aarusso-nyx.github.io/stynx/docs/adr/ADR-SESSIONS-0001-provider-neutral-session-control" hreflang="x-default"><link rel="stylesheet" href="/stynx/assets/css/styles.38f2e56e.css">
+<script src="/stynx/assets/js/runtime~main.51513abf.js" defer="defer"></script>
+<script src="/stynx/assets/js/main.631d8091.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_r1q4" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/stynx/"><b class="navbar__title text--truncate">STYNX</b></a><a class="navbar__item navbar__link" href="/stynx/docs/adopters/stynx/">Use STYNX</a><a class="navbar__item navbar__link" href="/stynx/docs/framework/">Framework</a><a class="navbar__item navbar__link" href="/stynx/docs/api-reference/">API</a><a class="navbar__item navbar__link" href="/stynx/docs/adopters/">Adopters</a><a class="navbar__item navbar__link" href="/stynx/docs/adopters/stynx/operational-readiness">Status</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/stynx/docs/adr/ADR-SESSIONS-0001-provider-neutral-session-control">v0</a><div class="toggle_NCLE colorModeToggle_ZQYg"><button class="clean-btn toggleButton_vsxE toggleButtonDisabled_M9ej" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_i8Ze lightToggleIcon_zm6s"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_i8Ze darkToggleIcon_PqIV"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_i8Ze systemToggleIcon_C30F"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_tMO3"><div class="navbar__search searchBarContainer_i4wO" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_W3Ti" value=""><div class="loadingRing_oVPI searchBarLoadingRing_xxks"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_XDiU"><div class="docsWrapper_Qd0P"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_fM53" type="button"></button><div class="docRoot_T0w_"><main class="docMainContainer_K44w docMainContainerEnhanced_OJO5"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_qsVs"><div class="docItemContainer_q3nk"><article><div class="tocCollapsible_ic8n theme-doc-toc-mobile tocMobile_JdIm"><button type="button" class="clean-btn tocCollapsibleButton_ys1K">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>ADR-SESSIONS-0001 — Provider-neutral session inventory and control</h1></header>
+<p><strong>Status:</strong> Accepted architecture decision.
+<strong>Contract:</strong> <a class="" href="/stynx/docs/framework/contracts/session-control"><code>docs/framework/contracts/session-control.md</code></a>.
+<strong>Round:</strong> R21 W06.
+<strong>Owner decision:</strong> <code>ACCEPTED 1D 2C 3D 4B 5D 6B 7C 8B 9C 10B 11C 12C</code>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_LaOX" id="status">Status<a href="#status" class="hash-link" aria-label="Direct link to Status" title="Direct link to Status" translate="no">​</a></h2>
+<p>Accepted on 2026-07-13. This ADR turns every accepted R21 W05 answer into
+permanent architecture. It does not reopen provider, privacy, authorization, or
+compatibility policy.</p>
+<h2 class="anchor anchorTargetStickyNavbar_LaOX" id="context">Context<a href="#context" class="hash-link" aria-label="Direct link to Context" title="Direct link to Context" translate="no">​</a></h2>
+<p>The existing <code>@aarusso-nyx/stynx-sessions</code> package owns STYNX-issued access and refresh
+tokens, refresh-family rotation, Redis state, JWT signing, JWKS, and a durable
+mirror. <code>@aarusso-nyx/stynx-angular-sessions</code> separately promises inventory,
+revoke-one, and revoke-others routes that no backend controller currently owns.
+An external identity provider may expose none, some, or all of the identity and
+revocation primitives assumed by the issued-session implementation. Exchanging
+an external login into a second STYNX token family is not an acceptable
+prerequisite for session inventory and control.</p>
+<h2 class="anchor anchorTargetStickyNavbar_LaOX" id="decision">Decision<a href="#decision" class="hash-link" aria-label="Direct link to Decision" title="Direct link to Decision" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_LaOX" id="logical-identity-and-scope">Logical identity and scope<a href="#logical-identity-and-scope" class="hash-link" aria-label="Direct link to Logical identity and scope" title="Direct link to Logical identity and scope" translate="no">​</a></h3>
+<p>The public control unit is a logical STYNX session registration, identified by
+an opaque general UUID <code>sid</code>. UUID versions are not restricted; UUIDv4, UUIDv7,
+and any valid RFC 9562 UUID are accepted for session, tenant, and operation IDs.
+The registration links a tenant-scoped view to one provider-session anchor.
+The anchor may hold an encrypted/opaque provider control handle or a keyed,
+non-secret fingerprint, but never a raw access, ID, or refresh token.</p>
+<p>One provider anchor can have multiple tenant registrations. Tenant inventory is
+RLS-scoped to one registration and does not reveal sibling registrations.
+Removing membership retires only that registration unless the anchor is proven
+tenant-dedicated. An operation whose provider effect reaches sibling tenants
+must declare that blast radius and requires separately proven identity-global
+authority. Tenant scope is the default; identity-global scope is never inferred.</p>
+<p>Current-session identity is resolved in order from (1) a verified provider
+session claim, (2) an adopter mapping validated by trusted authentication
+context, then (3) a registry-issued opaque handle. The third mechanism is
+mandatory when the first two are unavailable. A request body, query, or path
+may select a target <code>sid</code> for revoke-one, but can never assert which session is
+current or override tenant, subject, actor, or authority context.</p>
+<h3 class="anchor anchorTargetStickyNavbar_LaOX" id="package-boundary">Package boundary<a href="#package-boundary" class="hash-link" aria-label="Direct link to Package boundary" title="Direct link to Package boundary" translate="no">​</a></h3>
+<p><code>@aarusso-nyx/stynx-sessions</code> remains the single public package and gains an additive
+<code>./control</code> export backed by provider-neutral internals. The root barrel may
+re-export the stable control facade types and service, but issuance-specific
+types remain unchanged. Registry, provider adapter, reconciliation, trusted
+context, and HTTP orchestration live in isolated files and have no dependency
+on JWT signing, refresh rotation, JWKS, Cognito authentication, or Redis.</p>
+<p>Existing create/refresh/exchange/sign/JWKS APIs and runtime behavior remain
+compatible. The issued-session implementation may implement the same provider
+port through a local adapter, but is not the neutral core. External adopters do
+not configure a STYNX issuer and STYNX does not mint a second token family.</p>
+<p>R21 ships a deterministic provider fake and Cognito-compatible contract fixture
+without the AWS SDK, credentials, network calls, or an official runtime Cognito
+adapter. A future official adapter requires a separate ADR covering dependency,
+credential, secret-redaction, timeout, retry, and maintenance ownership.</p>
+<h3 class="anchor anchorTargetStickyNavbar_LaOX" id="lifecycle-actions-and-guarantees">Lifecycle, actions, and guarantees<a href="#lifecycle-actions-and-guarantees" class="hash-link" aria-label="Direct link to Lifecycle, actions, and guarantees" title="Direct link to Lifecycle, actions, and guarantees" translate="no">​</a></h3>
+<p>Logical registrations use <code>active</code>, <code>revocation_pending</code>, <code>revoked</code>, <code>failed</code>,
+<code>unsupported</code>, <code>expired</code>, or <code>retired</code>. Provider anchors independently record
+<code>active</code>, <code>revocation_pending</code>, <code>revoked</code>, <code>failed</code>, <code>unsupported</code>, <code>expired</code>,
+or <code>unknown</code>. A registration is never reported <code>revoked</code> merely because an
+intent was accepted. The normative transition table is in the contract.</p>
+<p>Actions have exact meanings: <code>logout-current</code> targets the trusted current
+registration; <code>revoke-one</code> targets one selected registration; <code>revoke-others</code>
+excludes the current registration; <code>revoke-all</code> includes it; administrative
+revoke targets an explicitly authorized subject or tenant. Shared-anchor
+provider revocation is identity-global even when initiated from one tenant.</p>
+<p>Capabilities and guarantees are independent typed values. The configured
+guarantee is one of:</p>
+<ul>
+<li class=""><code>immediate_local</code>: denial is committed synchronously before a <code>revoked</code>
+response; <code>effectiveBy</code> is no later than the response timestamp;</li>
+<li class=""><code>bounded_local</code>: the declared bound defaults to 5 seconds and MUST be between
+1 and 30 seconds; <code>effectiveBy</code> is request acceptance plus that bound;</li>
+<li class=""><code>refresh_revoked_access_expires</code>: refresh/control is confirmed, while access
+lasts until the declared provider expiry instant;</li>
+<li class=""><code>provider_confirmed</code>: provider control is confirmed but token enforcement
+timing is not stronger than provider evidence;</li>
+<li class=""><code>none</code>: no invalidation guarantee.</li>
+</ul>
+<p>An adapter cannot advertise a stronger guarantee than its enforcement path.
+Unsupported capabilities return <code>unsupported</code>; unavailable provider work is
+persisted as <code>revocation_pending</code>. Partial bulk results remain itemized and do
+not collapse to success.</p>
+<p>Every mutation uses a caller-supplied or server-issued UUID operation ID as its
+idempotency key. The unique key is <code>(scope, actor, action, operation_id)</code> and a
+replay returns the original/resulting operation without repeating effects.
+Provider attempts use the same operation ID. Retry is exponential at 5 seconds,
+30 seconds, 2 minutes, 10 minutes, 30 minutes, and 2 hours (six attempts after
+the initial attempt), with deterministic jitter supplied by the scheduler and
+a terminal <code>failed</code> state after the final attempt. Manual reconciliation may
+resume a failed operation under the same ID and must append a new attempt, not
+erase history. STYNX defines the claim/lease/reconcile port; the adopter owns
+the scheduler. A worker lease is 60 seconds and attempt recording is atomic.</p>
+<h3 class="anchor anchorTargetStickyNavbar_LaOX" id="authorization-privacy-and-audit">Authorization, privacy, and audit<a href="#authorization-privacy-and-audit" class="hash-link" aria-label="Direct link to Authorization, privacy, and audit" title="Direct link to Authorization, privacy, and audit" translate="no">​</a></h3>
+<p>Authorization is deny-by-default and distinguishes <code>sessions:self</code>,
+<code>sessions:tenant-manage</code>, and <code>sessions:identity-manage</code>. Self authority covers
+only the actor&#x27;s registrations in trusted tenant context. Tenant authority is
+required for another subject or tenant-wide action. Identity authority is
+required for identity-global inventory/control and any shared-anchor provider
+blast radius. Provider capability is not authorization.</p>
+<p>Display metadata is limited to untrusted device label, client/application,
+provider label, created/last-seen/expires timestamps, normalized user-agent
+family/device class, and country/region location. Raw IP is discarded
+immediately after coarse-location derivation. Full user-agent, tokens, provider
+handles, fingerprints, credentials, and rejected secret input are not persisted,
+logged, audited, or returned. User labels are escaped as untrusted text.</p>
+<p>Every control request, attempt, pending transition, result, and failure is
+audited. Privileged inventory reads are audited; ordinary self-listing is
+audited only when adopter policy requests it. Audit data contains identifiers,
+scope, action, capability/guarantee, state, safe error code, attempt number,
+blast radius, and timestamps—not tokens, raw IP, full user agent, provider
+handles, or metadata values.</p>
+<p>Terminal registration, anchor, and operation metadata is retained for 30 days
+from its terminal timestamp and then deleted or irreversibly anonymized.
+Subject erasure triggers the applicable deletion/anonymization immediately,
+subject to independently required redacted audit retention.</p>
+<h3 class="anchor anchorTargetStickyNavbar_LaOX" id="storage">Storage<a href="#storage" class="hash-link" aria-label="Direct link to Storage" title="Direct link to Storage" translate="no">​</a></h3>
+<p>The reference schema separates <code>auth.session_provider_anchors</code>,
+<code>auth.session_registrations</code>, <code>auth.session_operations</code>, and
+<code>auth.session_operation_attempts</code>. Tenant registrations have forced RLS and all
+tenant indexes lead with <code>tenant_id</code>. Anchors are not directly tenant-readable;
+access is only through a service that proves a visible registration or
+identity-global authority. Operations are tenant-RLS scoped unless explicitly
+identity-global. Unique constraints protect provider correlation and
+idempotency. Exact columns, checks, indexes, retention keys, and trusted context
+requirements are normative in the contract.</p>
+<h3 class="anchor anchorTargetStickyNavbar_LaOX" id="http-and-consumer-compatibility">HTTP and consumer compatibility<a href="#http-and-consumer-compatibility" class="hash-link" aria-label="Direct link to HTTP and consumer compatibility" title="Direct link to HTTP and consumer compatibility" translate="no">​</a></h3>
+<p>The existing paths remain:</p>
+<ul>
+<li class=""><code>GET /auth/sessions</code></li>
+<li class=""><code>DELETE /auth/sessions/:sid</code></li>
+<li class=""><code>POST /auth/sessions/revoke-others</code></li>
+</ul>
+<p>The list response remains a top-level array so existing consumers continue to
+parse it. Existing fields remain and new fields are additive. <code>lastIp</code> is always
+omitted; <code>userAgent</code>, when present, is normalized rather than full. Mutation
+responses use HTTP 200 with an additive result body; legacy clients expecting
+an empty 2xx response continue to succeed because they ignore the body.
+Capability discovery is via additive per-item fields and response headers,
+including <code>Stynx-Session-Control-Version: 1</code>. New <code>logout-current</code>,
+<code>revoke-all</code>, administrative, operation-status, and identity-global routes are
+additive and versioned by that contract header, not replacement URLs.</p>
+<p><code>@aarusso-nyx/stynx-angular-sessions</code> receives additive optional fields and result
+types. Its existing <code>list()</code>, <code>revoke(sid)</code>, and <code>revokeOthers()</code> calls and URLs
+remain source-compatible; adapters normalize legacy arrays and empty mutation
+responses. New status-aware methods are additive. The reference API owns real
+routes and the reference web stops using session-route mocks after backend
+wiring is available.</p>
+<h2 class="anchor anchorTargetStickyNavbar_LaOX" id="verification-contract">Verification contract<a href="#verification-contract" class="hash-link" aria-label="Direct link to Verification contract" title="Direct link to Verification contract" translate="no">​</a></h2>
+<p>W07/W08 must cover every lifecycle transition; same-tenant and cross-tenant RLS
+negatives; self, tenant-admin, and identity-admin authorization; current-session
+resolution and payload spoofing; revoke-one/others/all and logout-current;
+shared-anchor blast radius; capability gaps; every guarantee class and numeric
+bound; pending, partial failure, retry, lease recovery, and terminal failure;
+concurrent idempotent requests; retention, erasure, and redaction; provider
+handle/token log scanning; deterministic Cognito-compatible fake conformance;
+and legacy Angular/issued-session compatibility. No fake AWS test may contact a
+network or load credentials.</p>
+<h2 class="anchor anchorTargetStickyNavbar_LaOX" id="consequences">Consequences<a href="#consequences" class="hash-link" aria-label="Direct link to Consequences" title="Direct link to Consequences" translate="no">​</a></h2>
+<p>STYNX gains one public session concept without coupling provider control to
+token issuance. Some providers cannot deliver immediate invalidation, and the
+API exposes that limitation instead of simulating parity. Durable correlation,
+operations, and cleanup add storage and scheduler responsibilities. Existing
+issued-session and Angular consumers retain their paths and successful behavior.</p>
+<h2 class="anchor anchorTargetStickyNavbar_LaOX" id="exact-w07-implementation-checklist">Exact W07 implementation checklist<a href="#exact-w07-implementation-checklist" class="hash-link" aria-label="Direct link to Exact W07 implementation checklist" title="Direct link to Exact W07 implementation checklist" translate="no">​</a></h2>
+<ol>
+<li class="">Add isolated provider-neutral types, validation, registry/service, provider
+port, idempotent operation engine, retry/reconciliation port, Nest tokens,
+module registration, local issued-session adapter, deterministic fake, and
+Cognito-compatible contract fixture under <code>packages/sessions/src/control/</code>.</li>
+<li class="">Add <code>packages/sessions/src/control/index.ts</code>, package export <code>./control</code>, and
+additive stable root exports; do not alter create/refresh/sign/JWKS behavior.</li>
+<li class="">Add the reference migration creating the four <code>auth.session_*</code> tables,
+forced RLS policies, constraints, tenant-leading indexes, idempotency unique
+key, attempt lease fields, and 30-day cleanup keys.</li>
+<li class="">Add real reference API controllers/providers for the three existing paths
+plus status-aware logout-current, revoke-all, operation-status, authorized
+administrative, and identity-global operations from the wire contract.</li>
+<li class="">Derive actor, subject, tenant, current session, and authority exclusively
+from trusted auth/tenant context; reject every writable context override.</li>
+<li class="">Implement capability negotiation, itemized bulk results, exact state
+transitions, guarantee/effective timing, stable safe error codes, audit
+hooks, retry lease/claim, and redaction. Never persist/log raw tokens, raw IP,
+full user agent, provider handles in tenant rows, or credentials.</li>
+<li class="">Extend <code>@aarusso-nyx/stynx-angular-sessions</code> DTOs and adapter additively, preserving
+the legacy methods and top-level list-array/empty-2xx normalization; remove
+reference-web session mocks only after real routes are wired.</li>
+<li class="">Add unit, wiring, DB integration, provider-contract, tenant-negative,
+authorization, concurrency/idempotency, retry, privacy/retention, Angular
+contract, and old-consumer compatibility tests enumerated above.</li>
+<li class="">Update package docs, OpenAPI generation/coverage, public API baselines,
+tenant-isolation coverage, release consumer fixtures, mutation matrix, and
+package indexes without hand-editing generated evidence.</li>
+<li class="">Add a minor changeset for additive <code>@aarusso-nyx/stynx-sessions</code> exports and a minor
+changeset for additive <code>@aarusso-nyx/stynx-angular-sessions</code> APIs. If implementation
+cannot preserve the legacy list array, empty mutation success, or existing
+issuance API, stop and return to Architect; that requires a major change.</li>
+</ol></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>Tags:</b><ul class="tags_gycZ padding--none margin-left--sm"><li class="tag_RAZg"><a rel="tag" class="tag_V3ln tagRegular_IvJw" href="/stynx/docs/tags/stynx">stynx</a></li><li class="tag_RAZg"><a rel="tag" class="tag_V3ln tagRegular_IvJw" href="/stynx/docs/tags/sessions">sessions</a></li><li class="tag_RAZg"><a rel="tag" class="tag_V3ln tagRegular_IvJw" href="/stynx/docs/tags/identity-provider">identity-provider</a></li><li class="tag_RAZg"><a rel="tag" class="tag_V3ln tagRegular_IvJw" href="/stynx/docs/tags/tenancy">tenancy</a></li><li class="tag_RAZg"><a rel="tag" class="tag_V3ln tagRegular_IvJw" href="/stynx/docs/tags/privacy">privacy</a></li><li class="tag_RAZg"><a rel="tag" class="tag_V3ln tagRegular_IvJw" href="/stynx/docs/tags/revocation">revocation</a></li></ul></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_h6M7 thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#status" class="table-of-contents__link toc-highlight">Status</a></li><li><a href="#context" class="table-of-contents__link toc-highlight">Context</a></li><li><a href="#decision" class="table-of-contents__link toc-highlight">Decision</a><ul><li><a href="#logical-identity-and-scope" class="table-of-contents__link toc-highlight">Logical identity and scope</a></li><li><a href="#package-boundary" class="table-of-contents__link toc-highlight">Package boundary</a></li><li><a href="#lifecycle-actions-and-guarantees" class="table-of-contents__link toc-highlight">Lifecycle, actions, and guarantees</a></li><li><a href="#authorization-privacy-and-audit" class="table-of-contents__link toc-highlight">Authorization, privacy, and audit</a></li><li><a href="#storage" class="table-of-contents__link toc-highlight">Storage</a></li><li><a href="#http-and-consumer-compatibility" class="table-of-contents__link toc-highlight">HTTP and consumer compatibility</a></li></ul></li><li><a href="#verification-contract" class="table-of-contents__link toc-highlight">Verification contract</a></li><li><a href="#consequences" class="table-of-contents__link toc-highlight">Consequences</a></li><li><a href="#exact-w07-implementation-checklist" class="table-of-contents__link toc-highlight">Exact W07 implementation checklist</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/adopters/stynx/">Use STYNX</a></li><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/packages/">Packages</a></li><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/packages-web/">Web Packages</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Reference</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/api-reference/">API Reference</a></li><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/framework/contracts/">Contracts</a></li><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/framework/arch/">Architecture</a></li><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/glossary/">Glossary</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Engineering Status</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/adopters/stynx/operational-readiness">Operational readiness</a></li><li class="footer__item"><a class="footer__link-item" href="/stynx/docs/adopters/stynx/implementation-status">Implementation status</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Antonio A. Russo (<a href="mailto:aarusso@nyxk.com.br" style="color:inherit;text-decoration:underline">aarusso@nyxk.com.br</a>).<br>STYNX — a multi-tenant platform foundation of reusable backend and Angular libraries for building governed SaaS applications. v0<br>Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
