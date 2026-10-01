@@ -34,7 +34,7 @@
   "dependencies": {
     "@aarusso-nyx/stynx-privacy": "workspace:*",
     "commander": "^14.0.3",
-    "pg": "^8.20.0",
+    "pg": "^8.22.0",
     "yaml": "^2.8.3"
   },
   "devDependencies": {

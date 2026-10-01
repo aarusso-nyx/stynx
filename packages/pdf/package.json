@@ -46,7 +46,7 @@
     "@pdf-lib/fontkit": "^1.1.1",
     "handlebars": "4.7.9",
     "pdf-lib": "^1.17.1",
-    "playwright": "^1.60.0"
+    "playwright": "^1.61.1"
   },
   "peerDependencies": {
     "@nestjs/common": "^11.1.19",
@@ -63,7 +63,7 @@
     "pdfRenderer": "provider-supplied Chromium, Playwright, or equivalent renderer"
   },
   "devDependencies": {
-    "@nestjs/testing": "^11.1.19",
+    "@nestjs/testing": "^11.1.27",
     "@aarusso-nyx/stynx-signature": "workspace:*",
     "@types/node": "24.12.4",
     "typescript": "^6.0.3"
