@@ -56,7 +56,7 @@
     "@aarusso-nyx/stynx-sdk": "workspace:*"
   },
   "devDependencies": {
-    "@angular/common": "21.2.19",
+    "@angular/common": "22.0.5",
     "@angular/compiler": "21.2.19",
     "@angular/compiler-cli": "21.2.19",
     "@angular/core": "21.2.19",
