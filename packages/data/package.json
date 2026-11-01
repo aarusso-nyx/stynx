@@ -32,8 +32,8 @@
   "dependencies": {
     "@aarusso-nyx/stynx-core": "workspace:*",
     "drizzle-orm": "^0.45.2",
-    "nestjs-cls": "^6.2.0",
-    "pg": "^8.20.0",
+    "nestjs-cls": "^6.2.1",
+    "pg": "^8.22.0",
     "zod": "^4.3.6"
   },
   "peerDependencies": {
@@ -43,9 +43,9 @@
     "rxjs": "^7.8.2"
   },
   "devDependencies": {
-    "@nestjs/testing": "^11.1.19",
+    "@nestjs/testing": "^11.1.28",
     "@types/node": "24.12.4",
-    "@types/pg": "^8.20.0",
+    "@types/pg": "^8.20.3",
     "testcontainers": "^11.14.0",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3"
