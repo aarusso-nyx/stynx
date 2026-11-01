@@ -37,9 +37,9 @@
     "@aarusso-nyx/stynx-core": "workspace:*",
     "@aarusso-nyx/stynx-data": "workspace:*",
     "@aarusso-nyx/stynx-idempotency": "workspace:*",
-    "jose": "^6.2.2",
+    "jose": "^6.2.8",
     "redis": "^5.12.1",
-    "uuid": "^14.0.0",
+    "uuid": "^14.0.1",
     "zod": "^4.3.6"
   },
   "peerDependencies": {
@@ -49,10 +49,10 @@
     "rxjs": "^7.8.2"
   },
   "devDependencies": {
-    "@nestjs/platform-express": "^11.1.19",
-    "@nestjs/testing": "^11.1.19",
+    "@nestjs/platform-express": "^11.1.28",
+    "@nestjs/testing": "^11.1.28",
     "@types/node": "24.12.4",
-    "@types/supertest": "^7.2.0",
+    "@types/supertest": "^7.2.1",
     "supertest": "^7.2.2",
     "testcontainers": "^11.14.0",
     "ts-node": "^10.9.2",

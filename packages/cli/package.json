@@ -34,12 +34,12 @@
   "dependencies": {
     "@aarusso-nyx/stynx-privacy": "workspace:*",
     "commander": "^14.0.3",
-    "pg": "^8.20.0",
+    "pg": "^8.22.0",
     "yaml": "^2.8.3"
   },
   "devDependencies": {
     "@types/node": "24.12.4",
-    "@types/pg": "^8.20.0",
+    "@types/pg": "^8.20.3",
     "typescript": "^6.0.3"
   },
   "repository": {
